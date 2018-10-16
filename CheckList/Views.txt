@@ -1,0 +1,8 @@
+- log in
+- home
+- Use Checklists + ( single check with items )
+- Manage Check / menu
+	Add New List
+	Edit List
+	Order Lists
+	View Submissions
