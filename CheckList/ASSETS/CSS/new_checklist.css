@@ -15,7 +15,10 @@ input {
     border-bottom-right-radius:50px ;
     border-top-right-radius: 50px
 }
-.form-control{
+.head_inputs{
     border-radius: 50px;
     margin-left:-18px 
+}
+.form-control{
+    border-radius: 50px;
 }
