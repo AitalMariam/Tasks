@@ -82,15 +82,3 @@ input[type="checkbox"]:checked:active + .toggle i {
 	left: 14px;
 }
 /* end toggle */
-.card-body{
-	text-decoration: none;
-	color: black;
-}
-.card-body:hover{
-	text-decoration: none;
-	color: black;
-}
-input {
-    border-radius: 50px;
-    border: 1px solid #c3c3c3;
-}
