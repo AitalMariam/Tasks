@@ -22,7 +22,12 @@
 .fas{
     display: inline;
 }
-
+.card-body{
+    background: url('checklist2.png');
+    background-position: left;
+    background-size: 150px;
+    background-repeat: no-repeat;
+}
 
  /* Extra small devices (portrait phones)*/
  @media (max-width:575px) {

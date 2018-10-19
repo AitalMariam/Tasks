@@ -1,0 +1,31 @@
+
+
+.form-control{
+    border-radius: 50px;
+    width: 150px;
+}
+.container{
+    margin-top:10px;
+}
+.btn{
+	float:right;
+	
+}
+.titles{
+	font-size: 35px;
+	color: white;
+	border: 1px solid white;
+	border-radius: 50px;
+	display: inline;
+	padding: 0px 10px 0px 10px;
+
+}
+.titles:hover{
+	
+	color: black;
+	background: white
+
+}
+.card{
+	
+}
