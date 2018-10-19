@@ -42,20 +42,58 @@
     <div class="container">
             <div class="btn_container">
                     <div  class="col-12 text-center">
-                            <a><button class="btn btn-outline-light btn-lg"><i class="fas fa-plus"></i> Add New List</button></a>  
-                            <button class="btn btn-outline-light btn-lg"><i class="fas fa-edit"></i> Edit List</button>
-                            <button class="btn btn-outline-light btn-lg"><i class="fas fa-cogs"></i> Manage Checklist</button>
-                            <button class="btn btn-outline-light btn-lg"><i class="fas fa-sort"></i> Order Lists</button>
-                            <button class="btn btn-outline-light btn-lg"><i class="fas fa-list-ul"></i> View Submissions</button>
-
+                            <a><button class="btn btn-outline-light btn-lg"><i class="fas fa-plus"></i>&nbsp; Add New List</button></a>  
+                            <button class="btn btn-outline-light btn-lg"><i class="fas fa-edit"></i>&nbsp; Edit List</button>
+                            <button class="btn btn-outline-light btn-lg" type="button" data-toggle="modal" data-target="#OrderModal"><i class="fas fa-sort"></i>&nbsp; Order Lists</button>
+                           <!--<button class="btn btn-outline-light btn-lg"><i class="fas fa-list-ul"></i>&nbsp; View Submissions</button> -->
                            <!-- <img src="assets/img/checklist.svg" id="image"  class="img-fluid"> -->
+                           
+                            
+                            
+                              <button class="btn btn-outline-light btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-list-ul"></i>&nbsp; View Submissions &nbsp;&nbsp;</button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item"  href="#">View All Submissions</a>
+                                <a class="dropdown-item" href="#">View by List</a>
+                              </div>
+                            
+                          
+                          
                     </div>
             </div>  
     </div>
  
 
-
-
+<!-- Order Modal -->
+<div class="modal fade" id="OrderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-cogs"></i> ORDER OF CHECKLISTS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-primary" role="alert"><i class="fas fa-sort"></i>&nbsp; Chose the oreder of checklists to display</div> 
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend">Order By</span>
+          </div>
+          <select class="custom-select" ria-describedby="inputGroupPrepend">
+            <option value="Date">Date</option>
+            <option value="Alphabetical">Alphabetical</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Order Modal -->
 
 
 

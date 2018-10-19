@@ -9,11 +9,23 @@
     left:50%;
     transform: translate(-50%,-50%);
 }
-.btn-lg{
+.btn-lg {
     margin: 10px;
     padding: 25px;
 }
-
+.modal-content .alert{
+    border-radius: 30px;
+}
+#inputGroupPrepend{
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+}
+.custom-select{
+    border-radius: 50px;
+}
+.dropdown-men{
+    border-radius: 50px !important;
+}
  /* Extra small devices (portrait phones)*/
  @media (max-width:575px) {
     .btn-lg{

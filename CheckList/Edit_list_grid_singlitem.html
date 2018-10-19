@@ -46,8 +46,9 @@
                 <div class="col-12">
                         <div class="card">
                                 <div class="card-header">
-                                        <h3 id="card-header-title"><i class="fas fa-plus"></i> Add New List</h3>
+                                        <h3 id="card-header-title"><i class="fas fa-edit"></i> Edit List</h3>
                                         <button class="btn btn-success" id="save" onclick="document.getElementById('sub_form').click()"><i class="fas fa-save"></i></button>
+                                        <button class="btn btn-danger" id="save" style="margin-right:10px"><i class="fas fa-trash"></i></button>
                                 </div>
                                 
                                 <div class="card-body">
@@ -71,11 +72,6 @@
                                                     <div class="invalid-feedback">
                                                         Please Choice one Type
                                                     </div>
-                                                    
-                                                    <div class="custom-control custom-checkbox my-1 mr-sm-2" style="margin-left:25px">
-                                                        <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                                        <label class="custom-control-label" for="customControlInline">Required</label>
-                                                    </div>
                                             </div> <br>
                                         </div>
                                         <form method="POST" id="newItemForm"  class="needs-validation" novalidate>
@@ -85,12 +81,23 @@
                                                     <th scope="col">Title</th>
                                                     <th scope="col">Done</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col"></th>
                                                   </tr>
                                                 </thead>
                                                 <tbody>
-                                                    
-                                                        
-                                                    
+                                                    <tr>
+                                                        <th scope="row"><input type="text"  class="form-control" value="title 1" required> <div class="invalid-feedback" value="Title 1">This field is requered</div></th>
+                                                        <td>
+                                                            <div class="item"> <input type="checkbox" id="toggle_today_summary" checked> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text"  class="form-control" value="this is desception " required> <div class="invalid-feedback">This field is requered</div>
+                                                        </td>
+                                                        <td>
+                                                            <button type="text"  class="btn btn-success" style="margin-right:10px"><i class="fas fa-save"></i></button>
+                                                            <button type="text"  class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                        </td>
+                                                      </tr>
                                                 </tbody>
                                             </table>
                                             <input type="submit" style="display:none" id="sub_form">
@@ -132,7 +139,8 @@
                     t.row.add( [
                         '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>',
                         type,
-                        '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>'
+                        '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>',
+                        '<td> <button type="text"  class="btn btn-success" style="margin-right:10px"><i class="fas fa-save"></i></button><button type="text"  class="btn btn-danger"><i class="fas fa-trash"></i></button></td>'
                     ] ).draw( false );
                 } );
              
@@ -157,36 +165,36 @@
             }
         )();
         function checkname(){
-          //var list =  document.getElementById('itemType');
-          var ckecklist_name = document.getElementById('checklist_title');
-          var btn_newitem = document.getElementById('newitem');
-          var res;
-          if(ckecklist_name.value == ''){
-            ckecklist_name.className  = 'form-control head_inputs is-invalid';
-            btn_newitem.disabled = true;
-            res = false;
-            return res; 
-          }else{
-            ckecklist_name.className  = 'form-control head_inputs';
-            //btn_newitem.disabled = false;
-            res = true;
-            return res;
-        }     
-        }
-        function checkselected(){
-            var list =  document.getElementById('itemType');
-            var btn_newitem = document.getElementById('newtiem');
-            var res = checkname();
-            if(res == true){
-                if(list.value != null){
-                    document.getElementById('newitem').disabled = false;
-                    }
+            //var list =  document.getElementById('itemType');
+            var ckecklist_name = document.getElementById('checklist_title');
+            var btn_newitem = document.getElementById('newitem');
+            var res;
+            if(ckecklist_name.value == ''){
+              ckecklist_name.className  = 'form-control head_inputs is-invalid';
+              btn_newitem.disabled = true;
+              res = false;
+              return res; 
             }else{
-                document.getElementById('newitem').disabled = true;
-            }
-            
-            
-        }
+              ckecklist_name.className  = 'form-control head_inputs';
+              //btn_newitem.disabled = false;
+              res = true;
+              return res;
+          }     
+          }
+          function checkselected(){
+              var list =  document.getElementById('itemType');
+              var btn_newitem = document.getElementById('newtiem');
+              var res = checkname();
+              if(res == true){
+                  if(list.value != null){
+                      document.getElementById('newitem').disabled = false;
+                      }
+              }else{
+                  document.getElementById('newitem').disabled = true;
+              }
+              
+              
+          }
     </script>
   </body>
 </html>

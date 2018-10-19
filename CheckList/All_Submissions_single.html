@@ -1,17 +1,19 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>HOME</title>
+    <title>Checklists</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- CSS -->
-    <link rel="stylesheet" href="ASSETS/CSS/index.css">  
+    <link rel="stylesheet" href="ASSETS/CSS/Checklists.css"> 
+    <link rel="stylesheet" href="ASSETS/CSS/All_Submissions.css">
     <link rel="stylesheet" href="ASSETS/CSS/main.css">  
-     <!--font awesome-->
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   </head>
   <body>
     <!--NavbBar-->
@@ -40,21 +42,41 @@
           </nav>
     <!--End NavBAR-->
     <div class="container">
-            <div class="btn_container">
-                    <div  class="col-12 text-center">
-                            <a href="Checklists.html"><button class="btn btn-outline-light btn-lg"><i class="fas fa-clipboard-list"></i>&nbsp; USE CHECKLIST</button></a>  
-                            <button class="btn btn-outline-light btn-lg"><i class="fas fa-cogs"></i>&nbsp; MANAGE CHECKLIST</button>
-                           <!-- <img src="assets/img/checklist.svg" id="image"  class="img-fluid"> -->
-                    </div>
-            </div>  
+        <div class="row">  
+                <div class="col-12">
+                        <table class="table table-striped table-light table-hover" id="example">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Done</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Date/time</th>
+                                    <th scope="col"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>
+                                            <label>Title</label>
+                                        </th>
+                                        <td>
+                                            <div class="item"> <input type="checkbox" id="toggle_today_summary" checked disabled> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>
+                                        </td>
+                                        <td>
+                                            <label>Descreption</label>
+                                        </td>
+                                        <td>
+                                            <label>2018/09/30</label>
+                                        </td>
+                                        <td>
+                                            <button type="text"  class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                </div>
+        </div>
     </div>
- 
-
-
-
-
-
-
 
 
 
