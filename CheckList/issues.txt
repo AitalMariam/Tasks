@@ -1,0 +1,2 @@
+** add one to many relation between checklist and itemlist
+** add relation between checklist and user
