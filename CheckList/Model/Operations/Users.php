@@ -7,9 +7,8 @@
  */
 
 
-require_once '../Entities/User.php';
-require_once '../DataBase/ConnectionInstance.php';
-
+require $_SERVER['DOCUMENT_ROOT'].'CheckList\Model\Entities\User.php';
+require $_SERVER['DOCUMENT_ROOT'].'CheckList\Model\DataBase\ConnectionInstance.php.php';
 class Users
 {
     public $pdo = null;
