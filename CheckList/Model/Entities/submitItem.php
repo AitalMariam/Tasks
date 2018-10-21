@@ -1,7 +1,5 @@
 <?php
 
-
-
 class submitItem
 {
 
@@ -10,26 +8,21 @@ class submitItem
 
     private $submit;
 	
+
+    private $itemList;
+	
 	
 
-    private $itemListId;
-	
-	
-
-    private $userId;
-
+    private $user;
 
     private $ipAdress;
 
-    /**
-     * @return mixed
-     */
+
+
     public function getId()
     {
         return $this->id;
     }
-
-
 
     /**
      * @return mixed
@@ -50,33 +43,33 @@ class submitItem
     /**
      * @return mixed
      */
-    public function getItemListId()
+    public function getItemList()
     {
-        return $this->itemListId;
+        return $this->itemList;
     }
 
     /**
-     * @param mixed $itemListId
+     * @param mixed $itemList
      */
-    public function setItemListId($itemListId)
+    public function setItemList($itemList)
     {
-        $this->itemListId = $itemListId;
+        $this->itemList = $itemList;
     }
 
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getUser()
     {
-        return $this->userId;
+        return $this->user;
     }
 
     /**
-     * @param mixed $userId
+     * @param mixed $user
      */
-    public function setUserId($userId)
+    public function setUser($user)
     {
-        $this->userId = $userId;
+        $this->user = $user;
     }
 
     /**
@@ -94,6 +87,7 @@ class submitItem
     {
         $this->ipAdress = $ipAdress;
     }
+
 
 
 }

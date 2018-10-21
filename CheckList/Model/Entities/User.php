@@ -1,7 +1,6 @@
 <?php
 
 
-
 class User
 {
 
@@ -16,15 +15,12 @@ class User
 
     private $password;
 
-    /**
-     * @return mixed
-     */
+
+
     public function getId()
     {
         return $this->id;
     }
-
-
 
     /**
      * @return mixed
@@ -73,12 +69,6 @@ class User
     {
         $this->password = $password;
     }
-
-
-
-
-
-
 
 
 
