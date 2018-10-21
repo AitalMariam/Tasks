@@ -16,11 +16,6 @@ class User
     private $password;
 
 
-    private $ipAdress;
-
-   
-
-
 
     public function getId()
     {
@@ -75,21 +70,7 @@ class User
         $this->password = $password;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIpAdress()
-    {
-        return $this->ipAdress;
-    }
 
-    /**
-     * @param mixed $ipAdress
-     */
-    public function setIpAdress($ipAdress)
-    {
-        $this->ipAdress = $ipAdress;
-    }
 
 
 }

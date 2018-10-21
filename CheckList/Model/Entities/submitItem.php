@@ -15,6 +15,8 @@ class submitItem
 
     private $user;
 
+    private $ipAdress;
+
 
 
     public function getId()
@@ -69,6 +71,23 @@ class submitItem
     {
         $this->user = $user;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getIpAdress()
+    {
+        return $this->ipAdress;
+    }
+
+    /**
+     * @param mixed $ipAdress
+     */
+    public function setIpAdress($ipAdress)
+    {
+        $this->ipAdress = $ipAdress;
+    }
+
 
 
 }
