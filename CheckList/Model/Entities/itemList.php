@@ -26,7 +26,9 @@ class itemList
 
 
     private $delDate;
+	
 
+    private $list;
 
 
 
@@ -35,103 +37,135 @@ class itemList
         return $this->id;
     }
 
-
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-
+    /**
+     * @return mixed
+     */
     public function getTitle()
     {
         return $this->title;
     }
 
-
-    public function setDescription($description)
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
     {
-        $this->description = $description;
-
-        return $this;
+        $this->title = $title;
     }
 
-
+    /**
+     * @return mixed
+     */
     public function getDescription()
     {
         return $this->description;
     }
 
-
-    public function setDataType($dataType)
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
     {
-        $this->dataType = $dataType;
-
-        return $this;
+        $this->description = $description;
     }
 
-
+    /**
+     * @return mixed
+     */
     public function getDataType()
     {
         return $this->dataType;
     }
 
-
-    public function setRequired($required)
+    /**
+     * @param mixed $dataType
+     */
+    public function setDataType($dataType)
     {
-        $this->required = $required;
-
-        return $this;
+        $this->dataType = $dataType;
     }
 
-
+    /**
+     * @return mixed
+     */
     public function getRequired()
     {
         return $this->required;
     }
 
-
-    public function setHidden($hidden)
+    /**
+     * @param mixed $required
+     */
+    public function setRequired($required)
     {
-        $this->hidden = $hidden;
-
-        return $this;
+        $this->required = $required;
     }
 
-
+    /**
+     * @return mixed
+     */
     public function getHidden()
     {
         return $this->hidden;
     }
 
-
-    public function setCreationDate($creationDate)
+    /**
+     * @param mixed $hidden
+     */
+    public function setHidden($hidden)
     {
-        $this->creationDate = $creationDate;
-
-        return $this;
+        $this->hidden = $hidden;
     }
 
-
+    /**
+     * @return mixed
+     */
     public function getCreationDate()
     {
         return $this->creationDate;
     }
 
-
-    public function setDelDate($delDate)
+    /**
+     * @param mixed $creationDate
+     */
+    public function setCreationDate($creationDate)
     {
-        $this->delDate = $delDate;
-
-        return $this;
+        $this->creationDate = $creationDate;
     }
 
-
+    /**
+     * @return mixed
+     */
     public function getDelDate()
     {
         return $this->delDate;
     }
+
+    /**
+     * @param mixed $delDate
+     */
+    public function setDelDate($delDate)
+    {
+        $this->delDate = $delDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getList()
+    {
+        return $this->list;
+    }
+
+    /**
+     * @param mixed $list
+     */
+    public function setList($list)
+    {
+        $this->list = $list;
+    }
+
+
 
 
 }

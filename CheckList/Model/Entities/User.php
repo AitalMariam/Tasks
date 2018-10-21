@@ -1,7 +1,6 @@
 <?php
 
 
-
 class User
 {
 
@@ -16,15 +15,17 @@ class User
 
     private $password;
 
-    /**
-     * @return mixed
-     */
+
+    private $ipAdress;
+
+   
+
+
+
     public function getId()
     {
         return $this->id;
     }
-
-
 
     /**
      * @return mixed
@@ -74,13 +75,21 @@ class User
         $this->password = $password;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getIpAdress()
+    {
+        return $this->ipAdress;
+    }
 
-
-
-
-
-
-
+    /**
+     * @param mixed $ipAdress
+     */
+    public function setIpAdress($ipAdress)
+    {
+        $this->ipAdress = $ipAdress;
+    }
 
 
 }
