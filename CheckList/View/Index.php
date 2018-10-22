@@ -44,13 +44,13 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
                     <h5 class="card-title text-center">Sign In</h5>
-                    <form class="form-signin" method="post" action="..\Controleur\SignIn.php">
+                    <form class="form-signin" method="post" action="..\Actions\SignIn.php">
                         <div class="form-label-group">
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
+                            <input type="email"  class="form-control" placeholder="Email address" id="email" name="email" required autofocus>
                         </div>
                         <br>
                         <div class="form-label-group">
-                            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+                            <input type="password"  class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
                         <br>
                         <div class="custom-control custom-checkbox mb-3">
