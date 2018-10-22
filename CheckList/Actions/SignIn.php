@@ -17,5 +17,5 @@ if(isset($_POST['signinBtn']))
         header('Location: ..\View\home.php');
 }
 else
-    echo 'no';
+    header('Location: ..\View\home.php');
 

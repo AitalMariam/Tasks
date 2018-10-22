@@ -1,74 +1,180 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <title>New Checklist</title>
-    <link rel="stylesheet" href="ASSETS/CSS/index.css">
-    <?php include ('master/MainLinks.php');?>
-    <link rel="stylesheet" href="ASSETS/CSS/new_checklist.css">
-</head>
-<body>
-<?php include ('master/NavBar.php');?>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 id="card-header-title"><i class="fas fa-plus"></i> Add New List</h3>
-                    <button class="btn btn-success" id="save" onclick="document.getElementById('sub_form').click()"><i class="fas fa-save"></i></button>
-                </div>
+    <head>
+        <title>HOME</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- CSS -->
+        <link rel="stylesheet" href="ASSETS/CSS/new_checklist.css">
+        <link rel="stylesheet" href="ASSETS/CSS/main.css">
+        <!--data table -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <!--font awesome-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    </head>
+    <body>
 
-                <div class="card-body">
-                    <div class="col-md-6 col-sm-12">
-                        <input  type="text" class="form-control head_inputs" placeholder="List Name" id='checklist_title' onchange="checkname()" required> <br>
-                        <div class="invalid-feedback">
-                            Please write a title for this list
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 id="card-header-title"><i class="fas fa-plus"></i> Add New List</h3>
+                            <button class="btn btn-success" id="save" onclick="document.getElementById('sub_form').click()"><i class="fas fa-save"></i></button>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="col-md-6 col-sm-12">
+                                <input  type="text" name="listname" class="form-control head_inputs" placeholder="List Name" id='checklist_title' onchange="checkname()" required> <br>
+                                <div class="invalid-feedback">
+                                    Please write a title for this list
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 head_inputs">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-primary" id="newitem" disabled name="newitem" >Add new item</button>
+                                    </div>
+                                    <select class="custom-select" id="itemType" onchange="checkselected()" required>
+                                        <option selected disabled>Choose item Type to add</option>
+                                        <option value="1">Checkbox</option>
+                                        <option value="2">Short data (10 character field)</option>
+                                        <option value="3">Long Data (Text box)</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please Choice one Type
+                                    </div>
+
+                                    <div class="custom-control custom-checkbox my-1 mr-sm-2" style="margin-left:25px">
+                                        <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                        <label class="custom-control-label" for="customControlInline">Required</label>
+                                    </div>
+                                </div> <br>
+                            </div>
+                            <form method="POST" id="newItemForm"  class="needs-validation" novalidate>
+                                <table class="table table-striped table-light table-hover" id="example">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Done</th>
+                                        <th scope="col">Description</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                                <input type="submit" style="display:none" id="sub_form">
+                            </form>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-12 head_inputs">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-primary" id="newitem" disabled>Add new item</button>
-                            </div>
-                            <select class="custom-select" id="itemType" onchange="checkselected()" required>
-                                <option selected disabled>Choose item Type to add</option>
-                                <option value="1">Checkbox</option>
-                                <option value="2">Short data (10 character field)</option>
-                                <option value="3">Long Data (Text box)</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please Choice one Type
-                            </div>
 
-                            <div class="custom-control custom-checkbox my-1 mr-sm-2" style="margin-left:25px">
-                                <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                <label class="custom-control-label" for="customControlInline">Required</label>
-                            </div>
-                        </div> <br>
-                    </div>
-                    <form method="POST" id="newItemForm"  class="needs-validation" novalidate>
-                        <table class="table table-striped table-light table-hover" id="New_checklist">
-                            <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Title</th>
-                                <th scope="col">Done</th>
-                                <th scope="col">Description</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-
-
-                            </tbody>
-                        </table>
-                        <input type="submit" style="display:none" id="sub_form">
-                    </form>
                 </div>
             </div>
-
         </div>
-    </div>
-</div>
-<?php include ('master/JSlinks.php');?>
-<script src="ASSETS/JS/NewChecklist.js"></script>
-</body>
+
+        <!-- Create new list -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+            $('#newitem').click(function()
+            {
+                $.ajax({
+                    url: '../Actions/InsertList.php',
+                    type: 'POST',
+                    data:{
+
+                    }
+                });
+            });
+        </script>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var t = $('#example').DataTable({
+                    "paging": false,
+                });
+                $('#newitem').on( 'click', function () {
+                    var value = document.getElementById('itemType').value;
+                    var type;
+                    switch(value) {
+                        case value='1':
+                            type = '<div class="item"> <input type="checkbox" id="toggle_today_summary"> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>';
+                            break;
+                        case value='2':
+                            type = '<input type="text" class="form-control" maxlength="10" required> <div class="invalid-feedback">This field is requered</div>';
+                            break;
+                        case value='3':
+                            type = '<input type="text" class="form-control" required> <div class="invalid-feedback">This field is requered</div>';
+                            break;
+                    }
+                    t.row.add( [
+                        '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>',
+                        type,
+                        '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>'
+                    ] ).draw( false );
+                } );
+
+                // Automatically add a first row of data
+                $('#addRow').click();
+            } );
+
+            // Form validation:
+            (function () {
+                    "use strict";
+                    window.addEventListener('load',function () {
+                        var form = document.getElementById("newItemForm");
+                        form.addEventListener('submit',function (ev) {
+                            if(form.checkValidity() === false){
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        } , false);
+                    } ,false);
+
+                }
+            )();
+            function checkname(){
+                //var list =  document.getElementById('itemType');
+                var ckecklist_name = document.getElementById('checklist_title');
+                var btn_newitem = document.getElementById('newitem');
+                var res;
+                if(ckecklist_name.value == ''){
+                    ckecklist_name.className  = 'form-control head_inputs is-invalid';
+                    btn_newitem.disabled = true;
+                    res = false;
+                    return res;
+                }else{
+                    ckecklist_name.className  = 'form-control head_inputs';
+                    //btn_newitem.disabled = false;
+                    res = true;
+                    return res;
+                }
+            }
+            function checkselected(){
+                var list =  document.getElementById('itemType');
+                var btn_newitem = document.getElementById('newtiem');
+                var res = checkname();
+                if(res == true){
+                    if(list.value != null){
+                        document.getElementById('newitem').disabled = false;
+                    }
+                }else{
+                    document.getElementById('newitem').disabled = true;
+                }
+
+
+            }
+        </script>
+    </body>
 </html>

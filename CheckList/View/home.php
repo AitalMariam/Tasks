@@ -16,8 +16,8 @@
     <div class="btn_container">
         <div  class="col-12 text-center">
             <form method="post" action="..\Actions\UseCheckList.php"><a><button class="btn btn-outline-light btn-lg"><i class="fas fa-clipboard-list"></i>&nbsp; USE CHECKLIST</button></a></form>
+
             <a href="Manage_checklists.php"><button class="btn btn-outline-light btn-lg"><i class="fas fa-cogs"></i>&nbsp; MANAGE CHECKLIST</button></a>
-            <!-- <img src="assets/img/checklist.svg" id="image"  class="img-fluid"> -->
         </div>
     </div>
 </div>

@@ -18,13 +18,15 @@
                 foreach ($lists as $list)
                 {
                     echo '<div class="col-12 col-sm-4 col-md-3 col-lg-3">
-                                <a href="USE_CHECKLISTS_ITEM.php">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <b><span class="check_name"> '.$list['title'].'</span></b>
+                                <form>
+                                    <a href="USE_CHECKLISTS_ITEM.php">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <b><span class="check_name"> '.$list['title'].'</span></b>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </form>
                             </div>';
                 }
             ?>
