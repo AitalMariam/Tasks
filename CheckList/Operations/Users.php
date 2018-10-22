@@ -27,7 +27,12 @@ class Users
             return 'ERR';
         else
         {
-            $_SESSION["userConnected"] = $pdostate;
+            $temp = array(
+              'id'=>$pdostate->getId(),
+              'name'=>$pdostate->getName(),
+              'email'=>$pdostate->getEmail()
+            );
+            $_SESSION["user"] = $temp;
             return 'pass';
         }
     }
