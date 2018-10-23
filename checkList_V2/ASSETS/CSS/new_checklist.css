@@ -1,0 +1,25 @@
+input {
+    border-radius: 50px;
+    border: 1px solid #c3c3c3;
+}
+.container{
+    margin-top:10px;
+}
+#card-header-title{
+    display: inline;
+}
+#save{
+    float: right;
+}
+#itemType{
+    border-bottom-right-radius:50px ;
+    border-top-right-radius: 50px
+}
+.head_inputs{
+    border-radius: 50px;
+    margin-left:-18px;
+
+}
+.form-control{
+    border-radius: 50px;
+}
