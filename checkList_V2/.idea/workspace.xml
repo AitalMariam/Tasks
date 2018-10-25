@@ -28,14 +28,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="EditCheckList.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EditCheckList.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="18" column="71" lean-forward="false" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="71" />
+              <folding>
+                <marker date="1540508561324" expanded="true" signature="539:593" ph="..." />
+                <marker date="1540508561324" expanded="true" signature="539:598" ph="..." />
+                <marker date="1540508561324" expanded="true" signature="539:614" ph="..." />
+                <marker date="1540508561324" expanded="true" signature="539:616" ph="..." />
+                <marker date="1540508561324" expanded="true" signature="539:898" ph="..." />
+                <marker date="1540508561324" expanded="true" signature="617:875" ph="..." />
+                <marker date="1540508561324" expanded="true" signature="656:850" ph="..." />
+                <marker date="1540508561324" expanded="true" signature="704:762" ph="..." />
+                <marker date="1540508561324" expanded="true" signature="704:763" ph="..." />
+                <marker date="1540508561324" expanded="true" signature="704:823" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Edit_CheckList.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Actions/Edit_CheckList.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            <state relative-caret-position="346">
+              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
-                <element signature="e#198#346#0#PHP" expanded="false" />
-                <marker date="1540502627857" expanded="true" signature="118:151" ph="SELECT id , check_list" />
+                <marker date="1540509631378" expanded="true" signature="118:151" ph="SELECT id , check_list" />
+                <marker date="1540509631378" expanded="true" signature="118:168" ph="SELECT id , check_list" />
+                <marker date="1540509631378" expanded="true" signature="118:169" ph="SELECT id , check_list" />
+                <marker date="1540509631378" expanded="true" signature="118:179" ph="SELECT id , check_list" />
+                <marker date="1540509631378" expanded="true" signature="299:379" ph="SELECT title... item_list" />
+                <marker date="1540509631378" expanded="true" signature="299:380" ph="SELECT title... item_list" />
+                <marker date="1540509631378" expanded="true" signature="547:599" ph="SELECT id, a... item_answer" />
+                <marker date="1540509631378" expanded="true" signature="547:613" ph="SELECT id, a... item_answer" />
+                <marker date="1540509631378" expanded="true" signature="547:638" ph="SELECT id, a... item_answer" />
+                <marker date="1540509631378" expanded="true" signature="547:646" ph="SELECT id, a... item_answer" />
               </folding>
             </state>
           </provider>
@@ -44,8 +73,8 @@
       <file leaf-file-name="EditCheckList_Item.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EditCheckList_Item.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="16" column="104" lean-forward="false" selection-start-line="16" selection-start-column="104" selection-end-line="16" selection-end-column="104" />
+            <state relative-caret-position="155">
+              <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -87,9 +116,10 @@
         <option value="$PROJECT_DIR$/ASSETS/JS/CREAT_CHECKLIST.js" />
         <option value="$PROJECT_DIR$/Actions/Creat_CheckList.php" />
         <option value="$PROJECT_DIR$/Manage_checklists.php" />
-        <option value="$PROJECT_DIR$/Actions/Edit_CheckList.php" />
+        <option value="$PROJECT_DIR$/Actions/GetItems.php" />
         <option value="$PROJECT_DIR$/EditCheckList.php" />
         <option value="$PROJECT_DIR$/EditCheckList_Item.php" />
+        <option value="$PROJECT_DIR$/Actions/Edit_CheckList.php" />
       </list>
     </option>
   </component>
@@ -103,7 +133,7 @@
     <packageJsonPaths />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="580" />
     <option name="y" value="19" />
     <option name="width" value="683" />
@@ -178,18 +208,18 @@
       <option name="presentableId" value="Default" />
       <updated>1540222846218</updated>
       <workItem from="1540222847955" duration="28519000" />
-      <workItem from="1540493531908" duration="9404000" />
+      <workItem from="1540493531908" duration="15789000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37923000" />
+    <option name="totallyTimeSpent" value="44308000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1384" height="738" extended-state="6" />
+    <frame x="-9" y="-9" width="1384" height="738" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="7.64526E-4" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298292" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -358,26 +388,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Actions/Creat_CheckList.php">
+    <entry file="file://$PROJECT_DIR$/Manage_checklists.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="65" column="8" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="66" selection-end-column="26" />
-          <folding>
-            <element signature="e#123#349#0#PHP" expanded="false" />
-            <element signature="n#creatnewchecklist#0;n#!!top" expanded="false" />
-            <element signature="n#creatItem#0;n#!!top" expanded="false" />
-            <element signature="e#1092#1264#0#PHP" expanded="false" />
-            <element signature="e#1269#1473#0#PHP" expanded="false" />
-            <marker date="1540501378824" expanded="true" signature="1642:1722" ph="SELECT id FR... item_answer" />
-            <marker date="1540501378824" expanded="true" signature="1821:1908" ph="UPDATE item_answer... " />
-            <marker date="1540501378824" expanded="true" signature="2000:2081" ph="INSERT INTO item_answer... " />
-          </folding>
+        <state relative-caret-position="168">
+          <caret line="14" column="47" lean-forward="false" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Actions/Sign_up&amp;in.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
+        <state relative-caret-position="479">
           <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="29" />
           <folding>
             <marker date="1540432014516" expanded="true" signature="245:293" ph="select count... user" />
@@ -387,45 +408,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Manage_checklists.php">
+    <entry file="file://$PROJECT_DIR$/Actions/Creat_CheckList.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
-          <caret line="14" column="47" lean-forward="false" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+          <caret line="52" column="8" lean-forward="true" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="74" />
+          <folding>
+            <element signature="e#123#349#0#PHP" expanded="false" />
+            <element signature="n#creatnewchecklist#0;n#!!top" expanded="false" />
+            <element signature="n#creatItem#0;n#!!top" expanded="false" />
+            <element signature="e#1269#1473#0#PHP" expanded="false" />
+            <marker date="1540501378824" expanded="true" signature="1642:1722" ph="SELECT id FR... item_answer" />
+            <marker date="1540501378824" expanded="true" signature="1821:1908" ph="UPDATE item_answer... " />
+            <marker date="1540501378824" expanded="true" signature="2000:2081" ph="INSERT INTO item_answer... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Actions/GetItems.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EditCheckList_Item.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="16" column="104" lean-forward="false" selection-start-line="16" selection-start-column="104" selection-end-line="16" selection-end-column="104" />
+        <state relative-caret-position="155">
+          <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EditCheckList.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="73" lean-forward="false" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
+        <state relative-caret-position="126">
+          <caret line="18" column="71" lean-forward="false" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="71" />
           <folding>
-            <marker date="1540502832316" expanded="true" signature="539:597" ph="..." />
-            <marker date="1540502832316" expanded="true" signature="539:898" ph="..." />
-            <marker date="1540502832316" expanded="true" signature="617:875" ph="..." />
-            <marker date="1540502832316" expanded="true" signature="656:850" ph="..." />
-            <marker date="1540502832316" expanded="true" signature="704:762" ph="..." />
-            <marker date="1540502832316" expanded="true" signature="704:763" ph="..." />
-            <marker date="1540502832316" expanded="true" signature="704:823" ph="..." />
+            <marker date="1540508561324" expanded="true" signature="539:593" ph="..." />
+            <marker date="1540508561324" expanded="true" signature="539:598" ph="..." />
+            <marker date="1540508561324" expanded="true" signature="539:614" ph="..." />
+            <marker date="1540508561324" expanded="true" signature="539:616" ph="..." />
+            <marker date="1540508561324" expanded="true" signature="539:898" ph="..." />
+            <marker date="1540508561324" expanded="true" signature="617:875" ph="..." />
+            <marker date="1540508561324" expanded="true" signature="656:850" ph="..." />
+            <marker date="1540508561324" expanded="true" signature="704:762" ph="..." />
+            <marker date="1540508561324" expanded="true" signature="704:763" ph="..." />
+            <marker date="1540508561324" expanded="true" signature="704:823" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Actions/Edit_CheckList.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        <state relative-caret-position="346">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
-            <element signature="e#198#346#0#PHP" expanded="false" />
-            <marker date="1540502627857" expanded="true" signature="118:151" ph="SELECT id , check_list" />
+            <marker date="1540509631378" expanded="true" signature="118:151" ph="SELECT id , check_list" />
+            <marker date="1540509631378" expanded="true" signature="118:168" ph="SELECT id , check_list" />
+            <marker date="1540509631378" expanded="true" signature="118:169" ph="SELECT id , check_list" />
+            <marker date="1540509631378" expanded="true" signature="118:179" ph="SELECT id , check_list" />
+            <marker date="1540509631378" expanded="true" signature="299:379" ph="SELECT title... item_list" />
+            <marker date="1540509631378" expanded="true" signature="299:380" ph="SELECT title... item_list" />
+            <marker date="1540509631378" expanded="true" signature="547:599" ph="SELECT id, a... item_answer" />
+            <marker date="1540509631378" expanded="true" signature="547:613" ph="SELECT id, a... item_answer" />
+            <marker date="1540509631378" expanded="true" signature="547:638" ph="SELECT id, a... item_answer" />
+            <marker date="1540509631378" expanded="true" signature="547:646" ph="SELECT id, a... item_answer" />
           </folding>
         </state>
       </provider>

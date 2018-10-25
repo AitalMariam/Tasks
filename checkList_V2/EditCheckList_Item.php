@@ -13,8 +13,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <?php $listname = $_GET['name'];?>
-                    <h3 id="card-header-title"><i class="fas fa-edit"></i> Edit List <strong><?php echo $listname ?></strong></h3>
+                    <h3 id="card-header-title"><i class="fas fa-edit"></i> Edit List <strong><?php echo $_GET['name'] ?></strong></h3>
                     <button class="btn btn-success" id="save" onclick="document.getElementById('sub_form').click()"><i class="fas fa-save"></i></button>
                     <button class="btn btn-danger" id="save" style="margin-right:10px"><i class="fas fa-trash"></i></button>
                 </div>
