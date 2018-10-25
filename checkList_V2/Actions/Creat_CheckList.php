@@ -11,7 +11,8 @@ switch ($ButtonCall) {
     case 'newitem':
         creatItem($conn);
         break;
-
+    case 'edititem':
+        editItem($conn);
 
 }
 
@@ -27,7 +28,8 @@ function creatnewchecklist($userid,$conn){
 }
 
 
-function creatItem($conn){
+function creatItem($conn)
+{
     $checklistid = $_GET['checklistId'];
     $required = $_GET['required'];
     $type = $_GET['type'];
@@ -36,7 +38,14 @@ function creatItem($conn){
     $query = "INSERT INTO item_list (list_id,required,dataType,creationDate) values ('$checklistid',$required,'$type','$date')";
     $conn->exec($query);
 
-    $id = $conn->lastInsertId();
-    echo $id;
+    //$id = $conn->lastInsertId();
 
+}
+
+function editItem($conn)
+{
+    if(!is_null($_GET['title']))
+        $conn->exec('UPDATE item_list SET title = '.$_GET['title'].' WHERE id='.$_GET['itemid']);
+    if(!is_null($_GET['description']))
+        $conn->exec('UPDATE item_list SET description = '.$_GET['description'].' WHERE id='.$_GET['itemid']);
 }

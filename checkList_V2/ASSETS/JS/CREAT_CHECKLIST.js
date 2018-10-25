@@ -64,9 +64,11 @@ $(document).ready(function() {
     var t = $('#example').DataTable({
         "paging": false,
     });
+    var itemid = 0;
     $('#newitem').on( 'click', function ()
     {
         var value = gettype();
+        itemid = itemid + 1;
         //
         $.ajax({
             url:'Actions/Creat_CheckList.php',
@@ -78,31 +80,62 @@ $(document).ready(function() {
                 'required':requred(),
                 'type':gettype(),
                 'button':'newitem'
-            },
-
+            }
         })
         //
+        var checkid = 'check'.concat(itemid)
         var type;
         switch(value)
         {
             case value='checkbox':
-                type = '<div class="item"> <input type="checkbox" id="toggle_today_summary"> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>';
+                type = '<div class="item"> <input type="checkbox" class="'+checkid+'" id="toggle_today_summary"> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>';
                 break;
             case value='shortdata':
-                type = '<input type="text" class="form-control" maxlength="10" required> <div class="invalid-feedback">This field is required</div>';
+                type = '<input type="text" class="form-control '+checkid+'" maxlength="10" required> <div class="invalid-feedback">This field is required</div>';
                 break;
             case value='longdata':
-                type = '<input type="text" class="form-control" required> <div class="invalid-feedback">This field is required</div>';
+                type = '<input type="text" class="form-control '+checkid+'" required> <div class="invalid-feedback">This field is required</div>';
                 break;
         }
+        var titleid = 'title'.concat(itemid)
+        var descriptionid = 'description'.concat(itemid)
         t.row.add( [
-            '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is required</div>',
+            '<input type="text"  class="form-control title" id="'+titleid+'"  required> <div class="invalid-feedback">This field is required</div>',
             type,
-            '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is required</div>'
-        ] ).draw( false );
+            '<input type="text"  class="form-control description" id="'+descriptionid+'" required> <div class="invalid-feedback">This field is required</div>'
+        ] ).node().id = itemid;
+        t.draw( false );
     } );
 
     // Automatically add a first row of data
     $('#addRow').click();
 });
 //END CREAT NEW ITEN FOR CURRENT LIST
+
+
+//INSERT ROW CONTENT
+/**
+ * ERR 1 - action not receiving the data
+ * Issue 2 - if check var in data is a checkbox , it passed only 'ON'
+ */
+$(document).ready(function() {
+    $('#example').on( 'change', 'tbody tr', function (){
+        var rowId = this.id
+        alert($('.check'.concat(rowId)).val())
+        $.ajax({
+            url:'Actions/Creat_CheckList.php',
+            type: 'GET',
+            dataType: 'text',
+            data:
+            {
+                'button':'edititem',
+                'title':$('#title'.concat(rowId)).val(),
+                'description':$('#description'.concat(rowId)).val(),
+                'itemid':rowId,
+                'check':$('.check'.concat(rowId)).val()
+            }
+        })
+    });
+});
+
+//END INSERTING
