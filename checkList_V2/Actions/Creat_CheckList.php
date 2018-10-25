@@ -39,30 +39,4 @@ function creatItem($conn){
     $id = $conn->lastInsertId();
     echo $id;
 
-
-    /*echo "<script>
-           function newitem() {
-                    var value = ".$type.";".
-                   "var type;
-                    switch(value) {
-                        case value='checkbox':
-                            type = '<div class=\"item\"> <input type=\"checkbox\" id=\"$inputID\"> <div class=\"toggle\"> <label for=\"$inputID\"><i></i></label></div></div>';
-                            break;
-                        case value='shortdata':
-                            type = '<input type=\"text\" id=\"$inputID\" class=\"form-control\" maxlength=\"10\" >';
-                            break;
-                        case value='longdata':
-                            type = '<input type=\"text\" id=\"$inputID\" class=\"form-control\">';
-                            break;
-                    }
-                    t.row.add( [
-                        '<input type=\"text\" id=\"$itemTitleID\"  class=\"form-control\"><div style=\"Display:none\">$id<div>',
-                        type,
-                        '<input type=\"text\" id=\"$descreptionID\" class=\"form-control\">'
-                    ] ).draw( false );
-                }
-           // Automatically add a first row of data
-            newitem();
-            </script>";*/
-
 }
