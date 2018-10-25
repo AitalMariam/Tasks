@@ -38,8 +38,7 @@ function creatItem($conn)
     $query = "INSERT INTO item_list (list_id,required,dataType,creationDate) values ('$checklistid',$required,'$type','$date')";
     $conn->exec($query);
 
-    //$id = $conn->lastInsertId();
-
+    echo $conn->lastInsertId();
 }
 
 /**
@@ -47,8 +46,20 @@ function creatItem($conn)
  */
 function editItem($conn)
 {
-    if(!is_null($_GET['title']))
-        $conn->exec('UPDATE item_list SET title = '.$_GET['title'].' WHERE id='.$_GET['itemid']);
-    if(!is_null($_GET['description']))
-        $conn->exec('UPDATE item_list SET description = '.$_GET['description'].' WHERE id='.$_GET['itemid']);
+    if(!empty($_GET['answer'])){
+        $id = $_GET['itemid'];
+        $answer = $_GET['answer'];
+        $conn->exec("UPDATE item_list SET answer ='$answer' WHERE id='$id'");
+    }
+
+    if(!empty($_GET['title'])){
+        $id = $_GET['itemid'];
+        $title = $_GET['title'];
+        $conn->exec("UPDATE item_list SET title='$title' WHERE id='$id'");
+    }
+    if(!empty($_GET['description'])){
+        $id = $_GET['itemid'];
+        $descreption = $_GET['description'];
+        $conn->exec("UPDATE item_list SET description = '$descreption' WHERE id='$id'");
+    }
 }
