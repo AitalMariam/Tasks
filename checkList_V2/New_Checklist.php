@@ -8,7 +8,7 @@
     </head>
     <body>
 
-    <?php include ('master/NavBar.php');?>
+    <?php //include ('master/NavBar.php');?>
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -44,8 +44,8 @@
                                             <select class="custom-select" id="itemType" onchange="checkselected()" required>
                                                 <option selected disabled>Choose item Type to add</option>
                                                 <option value="checkbox">Checkbox</option>
-                                                <option value="short_data">Short data (10 character field)</option>
-                                                <option value="long_Data">Long Data (Text box)</option>
+                                                <option value="shortdata">Short data (10 character field)</option>
+                                                <option value="longdata">Long Data (Text box)</option>
                                             </select>
                                             <div class="invalid-feedback">
                                                 Please Choice one Type
@@ -89,82 +89,82 @@
          <!-- Create new list SCRIPT -->
 
     <script>
-            $(document).ready(function() {
-                var t = $('#example').DataTable({
-                    "paging": false,
-                });
-                /*$('#newitem').on( 'click', function () {
-                    var value = document.getElementById('itemType').value;
-                    var type;
-                    switch(value) {
-                        case value='1':
-                            type = '<div class="item"> <input type="checkbox" id="toggle_today_summary"> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>';
-                            break;
-                        case value='2':
-                            type = '<input type="text" class="form-control" maxlength="10" required> <div class="invalid-feedback">This field is requered</div>';
-                            break;
-                        case value='3':
-                            type = '<input type="text" class="form-control" required> <div class="invalid-feedback">This field is requered</div>';
-                            break;
-                    }
-                    t.row.add( [
-                        '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>',
-                        type,
-                        '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>'
-                    ] ).draw( false );
-                } );
-
-                // Automatically add a first row of data
-                $('#addRow').click(); */
+        $(document).ready(function() {
+            var t = $('#example').DataTable({
+                "paging": false,
+            });
+            /*$('#newitem').on( 'click', function () {
+                var value = document.getElementById('itemType').value;
+                var type;
+                switch(value) {
+                    case value='1':
+                        type = '<div class="item"> <input type="checkbox" id="toggle_today_summary"> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>';
+                        break;
+                    case value='2':
+                        type = '<input type="text" class="form-control" maxlength="10" required> <div class="invalid-feedback">This field is requered</div>';
+                        break;
+                    case value='3':
+                        type = '<input type="text" class="form-control" required> <div class="invalid-feedback">This field is requered</div>';
+                        break;
+                }
+                t.row.add( [
+                    '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>',
+                    type,
+                    '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>'
+                ] ).draw( false );
             } );
 
-            // Form validation:
-            (function () {
-                    "use strict";
-                    window.addEventListener('load',function () {
-                        var form = document.getElementById("newItemForm");
-                        form.addEventListener('submit',function (ev) {
-                            if(form.checkValidity() === false){
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                        } , false);
-                    } ,false);
+            // Automatically add a first row of data
+            $('#addRow').click(); */
+        } );
 
-                }
-            )();
-           /* function checkname(){
-                //var list =  document.getElementById('itemType');
-                var ckecklist_name = document.getElementById('checklist_title');
-                var btn_newitem = document.getElementById('newitem');
-                var res;
-                if(ckecklist_name.value == ''){
-                    ckecklist_name.className  = 'form-control head_inputs is-invalid';
-                    btn_newitem.disabled = true;
-                    res = false;
-                    return res;
-                }else{
-                    ckecklist_name.className  = 'form-control head_inputs';
-                    //btn_newitem.disabled = false;
-                    res = true;
-                    return res;
-                }
-            }*/
-            function checkselected() {
-                var list = document.getElementById('itemType');
-                var btn_newitem = document.getElementById('newtiem');
+        // Form validation:
+        (function () {
+                "use strict";
+                window.addEventListener('load',function () {
+                    var form = document.getElementById("newItemForm");
+                    form.addEventListener('submit',function (ev) {
+                        if(form.checkValidity() === false){
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    } , false);
+                } ,false);
 
-                if (list.value != null) {
-                    document.getElementById('newitem').disabled = false;
-                }
-                else {
-                    document.getElementById('newitem').disabled = true;
-                }
             }
+        )();
+        /* function checkname(){
+             //var list =  document.getElementById('itemType');
+             var ckecklist_name = document.getElementById('checklist_title');
+             var btn_newitem = document.getElementById('newitem');
+             var res;
+             if(ckecklist_name.value == ''){
+                 ckecklist_name.className  = 'form-control head_inputs is-invalid';
+                 btn_newitem.disabled = true;
+                 res = false;
+                 return res;
+             }else{
+                 ckecklist_name.className  = 'form-control head_inputs';
+                 //btn_newitem.disabled = false;
+                 res = true;
+                 return res;
+             }
+         }*/
+        function checkselected() {
+            var list = document.getElementById('itemType');
+            var btn_newitem = document.getElementById('newtiem');
+
+            if (list.value != null) {
+                document.getElementById('newitem').disabled = false;
+            }
+            else {
+                document.getElementById('newitem').disabled = true;
+            }
+        }
 
 
-        </script>
+    </script>
     <script src="ASSETS/JS/CREAT_CHECKLIST.js"></script>
 
     </body>

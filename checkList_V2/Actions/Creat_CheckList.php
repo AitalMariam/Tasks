@@ -11,7 +11,8 @@ switch ($ButtonCall) {
     case 'newitem':
         creatItem($conn);
         break;
-
+    case 'edititem':
+        editItem($conn);
 
 }
 
@@ -27,7 +28,8 @@ function creatnewchecklist($userid,$conn){
 }
 
 
-function creatItem($conn){
+function creatItem($conn)
+{
     $checklistid = $_GET['checklistId'];
     $required = $_GET['required'];
     $type = $_GET['type'];
@@ -36,33 +38,17 @@ function creatItem($conn){
     $query = "INSERT INTO item_list (list_id,required,dataType,creationDate) values ('$checklistid',$required,'$type','$date')";
     $conn->exec($query);
 
-    $id = $conn->lastInsertId();
-    echo $id;
+    //$id = $conn->lastInsertId();
 
+}
 
-    /*echo "<script>
-           function newitem() {
-                    var value = ".$type.";".
-                   "var type;
-                    switch(value) {
-                        case value='checkbox':
-                            type = '<div class=\"item\"> <input type=\"checkbox\" id=\"$inputID\"> <div class=\"toggle\"> <label for=\"$inputID\"><i></i></label></div></div>';
-                            break;
-                        case value='shortdata':
-                            type = '<input type=\"text\" id=\"$inputID\" class=\"form-control\" maxlength=\"10\" >';
-                            break;
-                        case value='longdata':
-                            type = '<input type=\"text\" id=\"$inputID\" class=\"form-control\">';
-                            break;
-                    }
-                    t.row.add( [
-                        '<input type=\"text\" id=\"$itemTitleID\"  class=\"form-control\"><div style=\"Display:none\">$id<div>',
-                        type,
-                        '<input type=\"text\" id=\"$descreptionID\" class=\"form-control\">'
-                    ] ).draw( false );
-                }
-           // Automatically add a first row of data
-            newitem();
-            </script>";*/
-
+/**
+ * save row changes 
+ */
+function editItem($conn)
+{
+    if(!is_null($_GET['title']))
+        $conn->exec('UPDATE item_list SET title = '.$_GET['title'].' WHERE id='.$_GET['itemid']);
+    if(!is_null($_GET['description']))
+        $conn->exec('UPDATE item_list SET description = '.$_GET['description'].' WHERE id='.$_GET['itemid']);
 }
