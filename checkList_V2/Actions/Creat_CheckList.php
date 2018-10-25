@@ -43,7 +43,7 @@ function creatItem($conn)
 }
 
 /**
- * save row changes 
+ * save row changes
  */
 function editItem($conn)
 {
