@@ -43,6 +43,7 @@ function requred(){
     else
         return 0;
 }
+
 function gettype(){
     var value = document.getElementById('itemType').value;
     var type;
@@ -64,11 +65,11 @@ $(document).ready(function() {
     var t = $('#example').DataTable({
         "paging": false,
     });
-    var itemid = 0;
+
     $('#newitem').on( 'click', function ()
     {
         var value = gettype();
-        itemid = itemid + 1;
+
         //
         $.ajax({
             url:'Actions/Creat_CheckList.php',
@@ -80,31 +81,39 @@ $(document).ready(function() {
                 'required':requred(),
                 'type':gettype(),
                 'button':'newitem'
+            },
+            success:function itemid (data) {
+                // hna jib id w sf
+                //document.getElementById('itemID').value = data;
+                var checkid = 'check'.concat(data);
+
+                var type;
+                switch(value)
+                {
+                    case value='checkbox':
+                        type = '<div class="item"> <input type="checkbox" id="'+checkid+'"> <div class="toggle"> <label for="'+checkid+'"><i></i></label></div></div>';
+                        break;
+                    case value='shortdata':
+                        type = '<input type="text" class="form-control" id="shortdata'+data+'" maxlength="10">';
+                        break;
+                    case value='longdata':
+                        type = '<input type="text" class="form-control" id="longdata'+data+'">';
+                        break;
+                }
+                var titleid = 'title'.concat(data)
+                var descriptionid = 'description'.concat(data)
+                t.row.add( [
+                    '<input type="text"  class="form-control" id="'+titleid+'">',
+                    type,
+                    '<input type="text"  class="form-control" id="'+descriptionid+'">'
+                ] ).node().id = data;
+                t.draw( false );
             }
         })
-        //
-        var checkid = 'check'.concat(itemid)
-        var type;
-        switch(value)
-        {
-            case value='checkbox':
-                type = '<div class="item"> <input type="checkbox" class="'+checkid+'" id="toggle_today_summary"> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>';
-                break;
-            case value='shortdata':
-                type = '<input type="text" class="form-control '+checkid+'" maxlength="10" required> <div class="invalid-feedback">This field is required</div>';
-                break;
-            case value='longdata':
-                type = '<input type="text" class="form-control '+checkid+'" required> <div class="invalid-feedback">This field is required</div>';
-                break;
-        }
-        var titleid = 'title'.concat(itemid)
-        var descriptionid = 'description'.concat(itemid)
-        t.row.add( [
-            '<input type="text"  class="form-control title" id="'+titleid+'"  required> <div class="invalid-feedback">This field is required</div>',
-            type,
-            '<input type="text"  class="form-control description" id="'+descriptionid+'" required> <div class="invalid-feedback">This field is required</div>'
-        ] ).node().id = itemid;
-        t.draw( false );
+
+       // var itemid = document.getElementById('itemID').value;
+        //alert(itemid+' outsiid of XD');
+
     } );
 
     // Automatically add a first row of data
@@ -121,8 +130,36 @@ $(document).ready(function() {
  */
 $(document).ready(function() {
     $('#example').on( 'change', 'tbody tr', function (){
-        var rowId = this.id
-        alert($('.check'.concat(rowId)).val())
+        function checkvalue(rowId){
+            id = "check"+rowId;
+            if (document.getElementById(id).checked == true)
+                return 1;
+            else return 0;}
+
+
+        //** check type
+        function getanswer(rowId) {
+            var answer;
+            var checkid = "check"+rowId;
+            var longdata_id = "longdata"+rowId;
+            var shortdata_id = "shortdata"+rowId;
+            if(document.getElementById(checkid)!= null){
+                answer = checkvalue(rowId);
+                return answer;}
+
+            if(document.getElementById(longdata_id)!= null){
+                answer = document.getElementById(longdata_id).value;
+                return answer;}
+
+            if(document.getElementById(shortdata_id)!= null){
+                answer = document.getElementById(shortdata_id).value;
+                return answer;}
+        }//**end check type
+
+        var rowId = this.id;
+       // var checkval = checkvalue(rowId);
+        var title = $('#title'.concat(rowId)).val();
+        var description = $('#description'.concat(rowId)).val();
         $.ajax({
             url:'Actions/Creat_CheckList.php',
             type: 'GET',
@@ -130,10 +167,10 @@ $(document).ready(function() {
             data:
             {
                 'button':'edititem',
-                'title':$('#title'.concat(rowId)).val(),
-                'description':$('#description'.concat(rowId)).val(),
+                'title':title,
+                'description':description,
                 'itemid':rowId,
-                'check':$('.check'.concat(rowId)).val()
+                'answer':getanswer(rowId)
             }
         })
     });

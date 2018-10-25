@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 id="card-header-title"><i class="fas fa-plus"></i> Add New List</h3>
-                            <button class="btn btn-success" id="save" onclick=""><i class="fas fa-save"></i></button>
+                            <a href="home.php"><button class="btn btn-success" id="save" onclick=""><i class="fas fa-save"></i></button></a>
                         </div>
 
                         <div class="card-body">
@@ -89,34 +89,34 @@
          <!-- Create new list SCRIPT -->
 
     <script>
-        $(document).ready(function() {
-            var t = $('#example').DataTable({
-                "paging": false,
-            });
-            /*$('#newitem').on( 'click', function () {
-                var value = document.getElementById('itemType').value;
-                var type;
-                switch(value) {
-                    case value='1':
-                        type = '<div class="item"> <input type="checkbox" id="toggle_today_summary"> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>';
-                        break;
-                    case value='2':
-                        type = '<input type="text" class="form-control" maxlength="10" required> <div class="invalid-feedback">This field is requered</div>';
-                        break;
-                    case value='3':
-                        type = '<input type="text" class="form-control" required> <div class="invalid-feedback">This field is requered</div>';
-                        break;
-                }
-                t.row.add( [
-                    '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>',
-                    type,
-                    '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>'
-                ] ).draw( false );
-            } );
+        /*   $(document).ready(function() {
+               var t = $('#example').DataTable({
+                   "paging": false,
+               });
+             /*$('#newitem').on( 'click', function () {
+                   var value = document.getElementById('itemType').value;
+                   var type;
+                   switch(value) {
+                       case value='1':
+                           type = '<div class="item"> <input type="checkbox" id="toggle_today_summary"> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>';
+                           break;
+                       case value='2':
+                           type = '<input type="text" class="form-control" maxlength="10" required> <div class="invalid-feedback">This field is requered</div>';
+                           break;
+                       case value='3':
+                           type = '<input type="text" class="form-control" required> <div class="invalid-feedback">This field is requered</div>';
+                           break;
+                   }
+                   t.row.add( [
+                       '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>',
+                       type,
+                       '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>'
+                   ] ).draw( false );
+               } );
 
-            // Automatically add a first row of data
-            $('#addRow').click(); */
-        } );
+               // Automatically add a first row of data
+               $('#addRow').click();
+        } );*/
 
         // Form validation:
         (function () {
