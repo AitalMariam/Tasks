@@ -17,7 +17,7 @@ body {
 /* Toggle */
 .item {
 	position: relative;
-		
+
 }
 
 .item:nth-child(1) p {
@@ -26,7 +26,7 @@ body {
 
 
 input[type="checkbox"] {
-	display: none;	
+	display: none;
 }
 
 .toggle {
@@ -43,7 +43,7 @@ input[type="checkbox"] {
 .toggle label {
 	width: 51px;
 	height: 32px;
-	border-radius: 32px; 
+	border-radius: 32px;
 	border: 2px solid #e5e5e5;
 	transition: all 0.30s ease;
 }

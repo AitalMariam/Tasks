@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>HOME</title>
+        <title>New CheckList | <?php session_start();  echo $_SESSION['user_id']; ?></title>
         <?php include ('master/MainLinks.php');?>
         <!-- CSS -->
         <link rel="stylesheet" href="ASSETS/CSS/new_checklist.css">
@@ -9,7 +9,6 @@
     <body>
 
     <?php include ('master/NavBar.php');?>
-
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -23,18 +22,19 @@
                             <div class="col-md-6 col-sm-12">
                                 <form method="post" action="">
                                     <div class="input-group mb-3">
-                                        <input type="text"  name="listname" id='checklist_title'  class="form-control head_inputs" placeholder="List Name" aria-describedby="button-addcheck">
+                                        <input type="text"  onkeydown="checktitle()"  name="listname"  id='checklist_title'  class="form-control head_inputs" placeholder="List Name" aria-describedby="button-addcheck">
                                         <div class="input-group-append">
-                                            <button class="btn btn-secondary" type="button" id="button-addcheck"><i class="fas fa-plus"></i></button>
+                                            <button class="btn btn-info" type="button" id="button-addcheck" disabled>Create</button>
                                         </div>
                                     </div>
+                                    <input id="checklistID" style="display: none;" value="">
                                     <div class="invalid-feedback">
                                         Please write a title for this list
                                     </div>
                                 </form>
                             </div>
 
-                            <div id="cardbody">
+                            <div id="cardbody" style="display: none">
                                 <div class="col-md-6 col-sm-12 head_inputs">
                                    <!-- <form method="post" action=""> -->
                                         <div class="input-group">
@@ -43,17 +43,17 @@
                                             </div>
                                             <select class="custom-select" id="itemType" onchange="checkselected()" required>
                                                 <option selected disabled>Choose item Type to add</option>
-                                                <option value="1">Checkbox</option>
-                                                <option value="2">Short data (10 character field)</option>
-                                                <option value="3">Long Data (Text box)</option>
+                                                <option value="checkbox">Checkbox</option>
+                                                <option value="short_data">Short data (10 character field)</option>
+                                                <option value="long_Data">Long Data (Text box)</option>
                                             </select>
                                             <div class="invalid-feedback">
                                                 Please Choice one Type
                                             </div>
 
                                             <div class="custom-control custom-checkbox my-1 mr-sm-2" style="margin-left:25px">
-                                                <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                                <label class="custom-control-label" for="customControlInline">Required</label>
+                                                <input type="checkbox" class="custom-control-input" id="checkItemRequired" onchange="requred()">
+                                                <label class="custom-control-label" for="checkItemRequired">Required</label>
                                             </div>
                                         </div>
                                     <!--</form>-->
@@ -82,28 +82,18 @@
             </div>
         </div>
 
-        <!-- Create new list -->
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script>
-            $('#newitem').click(function()
-            {
-                $.ajax({
-                    url: '../Actions/InsertList.php',
-                    type: 'POST',
-                    data:{
 
-                    }
-                });
-            });
-        </script>
+
 
         <?php include ('master/JSlinks.php');?>
-        <script>
+         <!-- Create new list SCRIPT -->
+
+    <script>
             $(document).ready(function() {
                 var t = $('#example').DataTable({
                     "paging": false,
                 });
-                $('#newitem').on( 'click', function () {
+                /*$('#newitem').on( 'click', function () {
                     var value = document.getElementById('itemType').value;
                     var type;
                     switch(value) {
@@ -125,7 +115,7 @@
                 } );
 
                 // Automatically add a first row of data
-                $('#addRow').click();
+                $('#addRow').click(); */
             } );
 
             // Form validation:
@@ -175,5 +165,7 @@
 
 
         </script>
+    <script src="ASSETS/JS/CREAT_CHECKLIST.js"></script>
+
     </body>
 </html>
