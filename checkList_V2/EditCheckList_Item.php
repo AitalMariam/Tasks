@@ -13,14 +13,15 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 id="card-header-title"><i class="fas fa-edit"></i> Edit List</h3>
+                    <?php $listname = $_GET['name'];?>
+                    <h3 id="card-header-title"><i class="fas fa-edit"></i> Edit List <strong><?php echo $listname ?></strong></h3>
                     <button class="btn btn-success" id="save" onclick="document.getElementById('sub_form').click()"><i class="fas fa-save"></i></button>
                     <button class="btn btn-danger" id="save" style="margin-right:10px"><i class="fas fa-trash"></i></button>
                 </div>
 
                 <div class="card-body">
                     <div class="col-md-6 col-sm-12">
-                        <input  type="text" class="form-control head_inputs" placeholder="List Name" id='checklist_title' onchange="checkname()" required> <br>
+
                         <div class="invalid-feedback">
                             Please write a title for this list
                         </div>
