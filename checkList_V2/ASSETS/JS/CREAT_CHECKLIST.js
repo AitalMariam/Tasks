@@ -117,6 +117,7 @@ $(document).ready(function() {
 /**
  * ERR 1 - action not receiving the data
  * Issue 2 - if check var in data is a checkbox , it passed only 'ON'
+ * Datatable Issue in reinitialise
  */
 $(document).ready(function() {
     $('#example').on( 'change', 'tbody tr', function (){

@@ -42,6 +42,9 @@ function creatItem($conn)
 
 }
 
+/**
+ * save row changes 
+ */
 function editItem($conn)
 {
     if(!is_null($_GET['title']))

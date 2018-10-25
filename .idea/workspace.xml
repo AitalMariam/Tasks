@@ -26,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CREAT_CHECKLIST.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CREAT_CHECKLIST.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/checkList_V2/ASSETS/JS/CREAT_CHECKLIST.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="118" column="69" lean-forward="false" selection-start-line="118" selection-start-column="69" selection-end-line="118" selection-end-column="69" />
+            <state relative-caret-position="-35">
+              <caret line="119" column="3" lean-forward="true" selection-start-line="119" selection-start-column="3" selection-end-line="119" selection-end-column="34" />
               <folding>
                 <element signature="e#305#921#0" expanded="false" />
                 <element signature="n#!!block;n#requred#0" expanded="false" />
@@ -42,17 +42,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Creat_CheckList.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Creat_CheckList.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/checkList_V2/Actions/Creat_CheckList.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="49" column="109" lean-forward="false" selection-start-line="49" selection-start-column="109" selection-end-line="49" selection-end-column="109" />
+            <state relative-caret-position="199">
+              <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
               <folding>
                 <element signature="n#creatnewchecklist#0;n#!!top" expanded="false" />
-                <marker date="1540438581295" expanded="true" signature="476:574" ph="INSERT INTO check_list... " />
-                <marker date="1540438581295" expanded="true" signature="839:951" ph="INSERT INTO item_list... " />
-                <marker date="1540438581295" expanded="true" signature="1100:1157" ph="UPDATE item_list... " />
-                <marker date="1540438581295" expanded="true" signature="1237:1306" ph="UPDATE item_list... " />
+                <marker date="1540438924893" expanded="true" signature="476:574" ph="INSERT INTO check_list... " />
+                <marker date="1540438924893" expanded="true" signature="839:951" ph="INSERT INTO item_list... " />
+                <marker date="1540438924893" expanded="true" signature="1129:1186" ph="UPDATE item_list... " />
+                <marker date="1540438924893" expanded="true" signature="1266:1335" ph="UPDATE item_list... " />
               </folding>
             </state>
           </provider>
@@ -74,8 +74,8 @@
         <option value="$PROJECT_DIR$/checkList_V2/home.php" />
         <option value="$PROJECT_DIR$/CheckList/View/HTML Templat 0.3/new_checklist.html" />
         <option value="$PROJECT_DIR$/checkList_V2/New_Checklist.php" />
-        <option value="$PROJECT_DIR$/checkList_V2/Actions/Creat_CheckList.php" />
         <option value="$PROJECT_DIR$/checkList_V2/ASSETS/JS/CREAT_CHECKLIST.js" />
+        <option value="$PROJECT_DIR$/checkList_V2/Actions/Creat_CheckList.php" />
       </list>
     </option>
   </component>
@@ -157,12 +157,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540432276627</updated>
-      <workItem from="1540432282084" duration="6454000" />
+      <workItem from="1540432282084" duration="6586000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6454000" />
+    <option name="totallyTimeSpent" value="6586000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1384" height="738" extended-state="6" />
@@ -277,20 +277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/checkList_V2/Actions/Creat_CheckList.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="49" column="109" lean-forward="false" selection-start-line="49" selection-start-column="109" selection-end-line="49" selection-end-column="109" />
-          <folding>
-            <element signature="n#creatnewchecklist#0;n#!!top" expanded="false" />
-            <marker date="1540438581295" expanded="true" signature="476:574" ph="INSERT INTO check_list... " />
-            <marker date="1540438581295" expanded="true" signature="839:951" ph="INSERT INTO item_list... " />
-            <marker date="1540438581295" expanded="true" signature="1100:1157" ph="UPDATE item_list... " />
-            <marker date="1540438581295" expanded="true" signature="1237:1306" ph="UPDATE item_list... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/checkList_V2/New_Checklist.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-600">
@@ -306,14 +292,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/checkList_V2/ASSETS/JS/CREAT_CHECKLIST.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="118" column="69" lean-forward="false" selection-start-line="118" selection-start-column="69" selection-end-line="118" selection-end-column="69" />
+        <state relative-caret-position="-35">
+          <caret line="119" column="3" lean-forward="true" selection-start-line="119" selection-start-column="3" selection-end-line="119" selection-end-column="34" />
           <folding>
             <element signature="e#305#921#0" expanded="false" />
             <element signature="n#!!block;n#requred#0" expanded="false" />
             <element signature="n#!!block;n#gettype#0" expanded="false" />
             <element signature="e#1518#3455#0" expanded="false" />
             <element signature="e#1880#2057#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkList_V2/Actions/Creat_CheckList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+          <folding>
+            <element signature="n#creatnewchecklist#0;n#!!top" expanded="false" />
+            <marker date="1540438924893" expanded="true" signature="476:574" ph="INSERT INTO check_list... " />
+            <marker date="1540438924893" expanded="true" signature="839:951" ph="INSERT INTO item_list... " />
+            <marker date="1540438924893" expanded="true" signature="1129:1186" ph="UPDATE item_list... " />
+            <marker date="1540438924893" expanded="true" signature="1266:1335" ph="UPDATE item_list... " />
           </folding>
         </state>
       </provider>
