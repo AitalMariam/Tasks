@@ -131,10 +131,10 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#example').on( 'change', 'tbody tr', function (){
         function checkvalue(rowId){
-            id = "check"+rowId;
+            var id = "check"+rowId;
             if (document.getElementById(id).checked == true)
-                return 1;
-            else return 0;}
+                 return 'yes';
+            else return 'no'; }
 
 
         //** check type
