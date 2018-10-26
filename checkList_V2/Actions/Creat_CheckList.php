@@ -12,7 +12,7 @@ switch ($ButtonCall) {
         creatItem($conn);
         break;
     case 'edititem':
-        editItem($conn);
+        editItem($conn,$USER_ID);
 
 }
 
@@ -42,15 +42,10 @@ function creatItem($conn)
 }
 
 /**
- * save row changes 
+ * save row changes
  */
-function editItem($conn)
+function editItem($conn,$userid)
 {
-    if(!empty($_GET['answer'])){
-        $id = $_GET['itemid'];
-        $answer = $_GET['answer'];
-        $conn->exec("UPDATE item_list SET answer ='$answer' WHERE id='$id'");
-    }
 
     if(!empty($_GET['title'])){
         $id = $_GET['itemid'];
@@ -61,5 +56,25 @@ function editItem($conn)
         $id = $_GET['itemid'];
         $descreption = $_GET['description'];
         $conn->exec("UPDATE item_list SET description = '$descreption' WHERE id='$id'");
+    }
+
+    if(!empty($_GET['answer'])){
+
+        $id = $_GET['itemid'];
+        $answer = $_GET['answer'];
+        // check answer if exists
+        $check = $conn->prepare("SELECT id FROM item_answer WHERE user_id = '$userid' AND item_id = '$id' LIMIT 1");
+        $check->execute();
+        if($check->rowCount() == 1)
+        {
+            $query = "UPDATE item_answer set answer = '$answer' WHERE user_id = '$userid' AND item_id = '$id' ";
+            $conn->exec($query);
+        }
+        else
+        {
+            $query = "INSERT INTO item_answer (answer,item_id,user_id) values ('$answer',$id,'$userid')";
+            $conn->exec($query);
+        }
+
     }
 }
