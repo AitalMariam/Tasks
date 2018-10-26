@@ -7,39 +7,25 @@
     <link rel="stylesheet" href="ASSETS/CSS/Checklists.css">
 </head>
 <body>
-<?php include ('master/NavBar.php');?>
+<?php //include ('master/NavBar.php');?>
+<?php session_start(); $lists = $_SESSION['check_list']; ?>
 <div class="container">
     <div class="row">
-        <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-            <a href="EditCheckList_Item.php">
-            <div class="card">
-                <div class="card-body">
-                    <b><span class="check_name"> check list1ddddddddddddddddddddd</span> </b>
-                </div>
-            </div>
-            </a>
-        </div>
-        <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-            <div class="card">
-                <div class="card-body">
-                    <b><span class="check_name"> check list1ddddddddddddddddddddd</span> </b>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-            <div class="card">
-                <div class="card-body">
-                    <b><span class="check_name"> check list1ddddddddddddddddddddd</span> </b>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-            <div class="card">
-                <div class="card-body">
-                    <b><span class="check_name"> check list1</span> </b>
-                </div>
-            </div>
-        </div>
+
+        <?php
+            foreach ($lists as $item)
+            {
+                echo ' <div class="col-12 col-sm-4 col-md-3 col-lg-3">
+                    <a href="Actions/GetListItems.php?name='.$item["title"].'&id='.$item['id'].'">
+                    <div class="card">
+                        <div class="card-body">
+                            <b><span class="check_name"> '.$item["title"].'</span> </b>
+                        </div>
+                    </div>
+                    </a>
+                </div>';
+            }
+        ?>
 
     </div>
 </div>
