@@ -85,10 +85,7 @@
                                                 echo '<input type="text" class="form-control" value = '.$answer.'>';
 
                                         }
-
-                                        echo '</td>';
-                                        //
-                                         echo   '<td>
+                                         echo   '</td><td>
                                                     <input type="text"  class="form-control" value="'.$item['item_description'].'" required> <div class="invalid-feedback">This field is requered</div>
                                                 </td>
                                                 <td>

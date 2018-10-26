@@ -31,16 +31,16 @@
       <file leaf-file-name="EditCheckList_Item.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EditCheckList_Item.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-119">
-              <caret line="81" column="120" lean-forward="false" selection-start-line="81" selection-start-column="120" selection-end-line="81" selection-end-column="120" />
+            <state relative-caret-position="196">
+              <caret line="75" column="88" lean-forward="false" selection-start-line="75" selection-start-column="81" selection-end-line="75" selection-end-column="88" />
               <folding>
-                <marker date="1540514354021" expanded="true" signature="3051:3164" ph="..." />
-                <marker date="1540514354021" expanded="true" signature="3051:3165" ph="..." />
-                <marker date="1540514354021" expanded="true" signature="3051:3327" ph="..." />
-                <marker date="1540514354021" expanded="true" signature="3051:5517" ph="..." />
-                <marker date="1540514354021" expanded="true" signature="3051:5810" ph="..." />
-                <marker date="1540514354021" expanded="true" signature="5262:5516" ph="..." />
-                <marker date="1540514354021" expanded="true" signature="5569:5757" ph="..." />
+                <marker date="1540514632167" expanded="true" signature="3051:3164" ph="..." />
+                <marker date="1540514632167" expanded="true" signature="3051:3165" ph="..." />
+                <marker date="1540514632167" expanded="true" signature="3051:3327" ph="..." />
+                <marker date="1540514632167" expanded="true" signature="3051:5424" ph="..." />
+                <marker date="1540514632167" expanded="true" signature="3051:5717" ph="..." />
+                <marker date="1540514632167" expanded="true" signature="5169:5423" ph="..." />
+                <marker date="1540514632167" expanded="true" signature="5476:5664" ph="..." />
               </folding>
             </state>
           </provider>
@@ -127,7 +127,7 @@
     <packageJsonPaths />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="580" />
     <option name="y" value="19" />
     <option name="width" value="683" />
@@ -208,15 +208,15 @@
       <option name="presentableId" value="Default" />
       <updated>1540222846218</updated>
       <workItem from="1540222847955" duration="28519000" />
-      <workItem from="1540493531908" duration="20537000" />
+      <workItem from="1540493531908" duration="20818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49056000" />
+    <option name="totallyTimeSpent" value="49337000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1384" height="738" extended-state="7" />
+    <frame x="-9" y="-9" width="1384" height="738" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -473,16 +473,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EditCheckList_Item.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="81" column="120" lean-forward="false" selection-start-line="81" selection-start-column="120" selection-end-line="81" selection-end-column="120" />
+        <state relative-caret-position="196">
+          <caret line="75" column="88" lean-forward="false" selection-start-line="75" selection-start-column="81" selection-end-line="75" selection-end-column="88" />
           <folding>
-            <marker date="1540514354021" expanded="true" signature="3051:3164" ph="..." />
-            <marker date="1540514354021" expanded="true" signature="3051:3165" ph="..." />
-            <marker date="1540514354021" expanded="true" signature="3051:3327" ph="..." />
-            <marker date="1540514354021" expanded="true" signature="3051:5517" ph="..." />
-            <marker date="1540514354021" expanded="true" signature="3051:5810" ph="..." />
-            <marker date="1540514354021" expanded="true" signature="5262:5516" ph="..." />
-            <marker date="1540514354021" expanded="true" signature="5569:5757" ph="..." />
+            <marker date="1540514632167" expanded="true" signature="3051:3164" ph="..." />
+            <marker date="1540514632167" expanded="true" signature="3051:3165" ph="..." />
+            <marker date="1540514632167" expanded="true" signature="3051:3327" ph="..." />
+            <marker date="1540514632167" expanded="true" signature="3051:5424" ph="..." />
+            <marker date="1540514632167" expanded="true" signature="3051:5717" ph="..." />
+            <marker date="1540514632167" expanded="true" signature="5169:5423" ph="..." />
+            <marker date="1540514632167" expanded="true" signature="5476:5664" ph="..." />
           </folding>
         </state>
       </provider>
