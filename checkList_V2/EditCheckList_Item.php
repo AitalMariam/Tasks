@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <?php session_start(); ?>
     <title>Manage Check Lists</title>
     <link rel="stylesheet" href="ASSETS/CSS/index.css">
     <?php include ('master/MainLinks.php');?>
@@ -20,7 +21,9 @@
 
                 <div class="card-body">
                     <div class="col-md-6 col-sm-12">
-
+                        <div class="input-group mb-3">
+                            <input type="text" value='<?php echo $_GET['name'] ?>'  onkeydown=""  name="listname"  id='checklist_title'  class="form-control head_inputs" placeholder="List Name">
+                        </div>
                         <div class="invalid-feedback">
                             Please write a title for this list
                         </div>
@@ -41,19 +44,18 @@
                             </div>
                         </div> <br>
                     </div>
-                    <form method="POST" id="newItemForm"  class="needs-validation" novalidate>
                         <table class="table table-striped table-light table-hover" id="EditeChecklist">
                             <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Title</th>
                                 <th scope="col">Done</th>
                                 <th scope="col">Description</th>
+                                <th scope="col">Required</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    session_start();
                                     foreach ($_SESSION['list_items'] as $item)
                                     {
                                         echo '<tr>
@@ -61,6 +63,7 @@
                                                 ';
                                         // set data type
                                         echo '<td>';
+
                                         if(!empty($item['item_answer'][0]))
                                         {
                                             $it = $item['item_answer'][0];
@@ -68,36 +71,57 @@
                                         }
                                         else
                                             $answer = '';
+
+                                        /**************************************/
+                                        // set required or not
+                                        function getrequired($item_req){
+                                            $required = '';
+                                            if($item_req == '1'){
+                                                $required = 'required';
+                                                return $required;
+                                            }else return $required=' ';
+                                        }//end set required or not
+                                        $required = getrequired($item['item_required']);
+                                        $item_id = $item['item_id'];
+                                        $checked = 'checked';
+                                        if($required != 'required')
+                                            $checked = " ";
                                         switch($item['item_datatype'])
                                         {
                                             case $item['item_datatype']='checkbox':
                                                 echo '<div class="item"> ';
                                                 if( $answer == '1')
-                                                    echo '<input type="checkbox" checked> ';
+                                                    echo '<input type="checkbox" id="check'.$item_id.'" '.$required.' checked>';
                                                 else
-                                                    echo '<input type="checkbox"> ';
-                                                echo '<div class="toggle"> <label ><i></i></label></div></div>';
+                                                    echo '<input id="check'.$item_id.'" type="checkbox" '.$required.'> ';
+                                                echo '<div class="toggle"> <label for="check'.$item_id.'" ><i></i></label></div></div>';
                                                 break;
                                             case $item['item_datatype']='shortdata':
-                                                echo '<input type="text" class="form-control" maxlength="10" value = '.$answer.'>';
+                                                echo '<input type="text" id="shortdata'.$item_id.'" '.$required.' class="form-control" maxlength="10" value='.$answer.'>';
                                                 break;
                                             case $item['item_datatype']='longdata':
-                                                echo '<input type="text" class="form-control" value = '.$answer.'>';
+                                                echo '<input id="longdata'.$item_id.'" '.$required.' type="text" class="form-control" value = '.$answer.'>';
 
                                         }
                                          echo   '</td><td>
                                                     <input type="text"  class="form-control" value="'.$item['item_description'].'" required> <div class="invalid-feedback">This field is requered</div>
                                                 </td>
                                                 <td>
-                                                    <button type="text"  class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                    <div class="item">
+                                                        <input type="checkbox"  id="required'.$item_id.'" '.$checked.'>  
+                                                        <div class="toggle">
+                                                            <label for="required'.$item_id.'" ><i></i></label>
+                                                        </div>
+                                                     </div>
+                                                </td>
+                                                <td>
+                                                    <check type="text"  class="btn btn-danger"><i class="fas fa-trash"></i></check>
                                                 </td>
                                                </tr>';
                                     }
                                 ?>
                             </tbody>
                         </table>
-                        <input type="submit" style="display:none" id="sub_form">
-                    </form>
                 </div>
             </div>
 
@@ -105,7 +129,7 @@
     </div>
 </div>
 <?php include ('master/JSlinks.php');?>
-<script src="ASSETS/JS/EditChecklist%20-%20Copy.js"></script>
+<script src="ASSETS/JS/Edite_Checklist.js"></script>
 
 </body>
 </html>

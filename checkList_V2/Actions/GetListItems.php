@@ -4,7 +4,7 @@ include "Database/Connection.php";
 $USER_ID = $_SESSION['user_id'];
 $listId =  $_GET['id'];
 //Get items
-$items = $conn->prepare("SELECT id, title, description,dataType FROM item_list WHERE list_id = '$listId' ");
+$items = $conn->prepare("SELECT id, title, description,dataType, required FROM item_list WHERE list_id = '$listId' ");
 $items->execute();
 $result = array();
 foreach ($items as $list_item)
@@ -29,7 +29,8 @@ foreach ($items as $list_item)
         'item_title'=>$list_item[1],
         'item_description'=>$list_item[2],
         'item_datatype'=>$list_item[3],
-        'item_answer'=>$answerelement
+        ''=>$list_item[4],
+        'item_answer'=>$answerelement,
     );
     array_push($result,$li);
 }
