@@ -89,34 +89,7 @@
          <!-- Create new list SCRIPT -->
 
     <script>
-        /*   $(document).ready(function() {
-               var t = $('#example').DataTable({
-                   "paging": false,
-               });
-             /*$('#newitem').on( 'click', function () {
-                   var value = document.getElementById('itemType').value;
-                   var type;
-                   switch(value) {
-                       case value='1':
-                           type = '<div class="item"> <input type="checkbox" id="toggle_today_summary"> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>';
-                           break;
-                       case value='2':
-                           type = '<input type="text" class="form-control" maxlength="10" required> <div class="invalid-feedback">This field is requered</div>';
-                           break;
-                       case value='3':
-                           type = '<input type="text" class="form-control" required> <div class="invalid-feedback">This field is requered</div>';
-                           break;
-                   }
-                   t.row.add( [
-                       '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>',
-                       type,
-                       '<input type="text"  class="form-control" required> <div class="invalid-feedback">This field is requered</div>'
-                   ] ).draw( false );
-               } );
 
-               // Automatically add a first row of data
-               $('#addRow').click();
-        } );*/
 
         // Form validation:
         (function () {
@@ -134,23 +107,7 @@
 
             }
         )();
-        /* function checkname(){
-             //var list =  document.getElementById('itemType');
-             var ckecklist_name = document.getElementById('checklist_title');
-             var btn_newitem = document.getElementById('newitem');
-             var res;
-             if(ckecklist_name.value == ''){
-                 ckecklist_name.className  = 'form-control head_inputs is-invalid';
-                 btn_newitem.disabled = true;
-                 res = false;
-                 return res;
-             }else{
-                 ckecklist_name.className  = 'form-control head_inputs';
-                 //btn_newitem.disabled = false;
-                 res = true;
-                 return res;
-             }
-         }*/
+
         function checkselected() {
             var list = document.getElementById('itemType');
             var btn_newitem = document.getElementById('newtiem');

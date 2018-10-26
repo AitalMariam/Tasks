@@ -52,19 +52,51 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row"><input type="text"  class="form-control" value="title 1" required> <div class="invalid-feedback" value="Title 1">This field is requered</div></th>
-                                <td>
-                                    <div class="item"> <input type="checkbox" id="toggle_today_summary" checked> <div class="toggle"> <label for="toggle_today_summary"><i></i></label></div></div>
-                                </td>
-                                <td>
-                                    <input type="text"  class="form-control" value="this is desception " required> <div class="invalid-feedback">This field is requered</div>
-                                </td>
-                                <td>
-                                    <button type="text"  class="btn btn-success" style="margin-right:10px"><i class="fas fa-save"></i></button>
-                                    <button type="text"  class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
+                                <?php
+                                    session_start();
+                                    foreach ($_SESSION['list_items'] as $item)
+                                    {
+                                        echo '<tr>
+                                                <th scope="row"><input type="text"  class="form-control" value="'.$item['item_title'].'" required> <div class="invalid-feedback" value="Title 1">This field is requered</div></th>
+                                                ';
+                                        // set data type
+                                        echo '<td>';
+                                        if(!empty($item['item_answer'][0]))
+                                        {
+                                            $it = $item['item_answer'][0];
+                                            $answer = $it['answer_content'];
+                                        }
+                                        else
+                                            $answer = '';
+                                        switch($item['item_datatype'])
+                                        {
+                                            case $item['item_datatype']='checkbox':
+                                                echo '<div class="item"> ';
+                                                if( $answer == '1')
+                                                    echo '<input type="checkbox" checked> ';
+                                                else
+                                                    echo '<input type="checkbox"> ';
+                                                echo '<div class="toggle"> <label ><i></i></label></div></div>';
+                                                break;
+                                            case $item['item_datatype']='shortdata':
+                                                echo '<input type="text" class="form-control" maxlength="10" value = '.$answer.'>';
+                                                break;
+                                            case $item['item_datatype']='longdata':
+                                                echo '<input type="text" class="form-control" value = '.$answer.'>';
+
+                                        }
+
+                                        echo '</td>';
+                                        //
+                                         echo   '<td>
+                                                    <input type="text"  class="form-control" value="'.$item['item_description'].'" required> <div class="invalid-feedback">This field is requered</div>
+                                                </td>
+                                                <td>
+                                                    <button type="text"  class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                </td>
+                                               </tr>';
+                                    }
+                                ?>
                             </tbody>
                         </table>
                         <input type="submit" style="display:none" id="sub_form">

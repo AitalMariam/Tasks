@@ -16,7 +16,7 @@
             foreach ($lists as $item)
             {
                 echo ' <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-                    <a href="EditCheckList_Item.php?name='.$item["title"].'">
+                    <a href="Actions/GetListItems.php?name='.$item["title"].'&id='.$item['id'].'">
                     <div class="card">
                         <div class="card-body">
                             <b><span class="check_name"> '.$item["title"].'</span> </b>
