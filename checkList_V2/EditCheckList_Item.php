@@ -69,7 +69,7 @@
                                     {
                                         $item_id = $item['item_id'];
                                         echo '<tr id="'.$item_id.'">
-                                                <th scope="row"><input type="text"  class="form-control" value="'.$item['item_title'].'" required> <div class="invalid-feedback" value="Title 1">This field is requered</div></th>
+                                                <th scope="row"><input type="text" id="title'.$item_id.'"  class="form-control" value="'.$item['item_title'].'" required> <div class="invalid-feedback" value="Title 1">This field is requered</div></th>
                                                 ';
                                         // set data type
                                         echo '<td id="'.$item_id.'">';
@@ -105,7 +105,7 @@
                                         {
                                             case $item['item_datatype']='checkbox':
                                                 echo '<div class="item"> ';
-                                                if( $answer == '1')
+                                                if( $answer == 'yes')
                                                     echo '<input type="checkbox" id="check'.$item_id.'" '.$required.' checked>';
                                                 else
                                                     echo '<input id="check'.$item_id.'" type="checkbox" '.$required.'> ';
@@ -119,7 +119,7 @@
 
                                         }
                                          echo   '</td><td>
-                                                    <input type="text"  class="form-control" value="'.$item['item_description'].'" required> <div class="invalid-feedback">This field is requered</div>
+                                                    <input type="text"  class="form-control" id="description'.$item_id.'" value="'.$item['item_description'].'" required> <div class="invalid-feedback">This field is requered</div>
                                                 </td>
                                                 <td>
                                                     <div class="item">
@@ -130,10 +130,10 @@
                                                      </div>
                                                 </td>
                                                 <td>
-                                                    <check type="text"  class="btn btn-success"><i class="fas fa-check"></i></check>
+                                                    <button id="submit'.$item_id.'" class="btn btn-success"><i class="fas fa-check"></i></button>
                                                 </td>
                                                 <td>
-                                                    <check type="text"  class="btn btn-danger"><i class="fas fa-trash"></i></check>
+                                                    <button type="submit'.$item_id.'"  class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                                 </td>
                                                </tr>';
                                     }
