@@ -89,25 +89,6 @@
          <!-- Create new list SCRIPT -->
 
     <script>
-
-
-        // Form validation:
-        (function () {
-                "use strict";
-                window.addEventListener('load',function () {
-                    var form = document.getElementById("newItemForm");
-                    form.addEventListener('submit',function (ev) {
-                        if(form.checkValidity() === false){
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    } , false);
-                } ,false);
-
-            }
-        )();
-
         function checkselected() {
             var list = document.getElementById('itemType');
             var btn_newitem = document.getElementById('newtiem');
@@ -119,8 +100,6 @@
                 document.getElementById('newitem').disabled = true;
             }
         }
-
-
     </script>
     <script src="ASSETS/JS/CREAT_CHECKLIST.js"></script>
 

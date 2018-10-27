@@ -29,11 +29,12 @@ foreach ($items as $list_item)
         'item_title'=>$list_item[1],
         'item_description'=>$list_item[2],
         'item_datatype'=>$list_item[3],
-        ''=>$list_item[4],
+        'item_required'=>$list_item[4],
         'item_answer'=>$answerelement,
     );
     array_push($result,$li);
 }
+//var_dump($result);
 
 $_SESSION['list_items'] = $result;
-header('Location: ../EditCheckLIst_Item.php?name='.$_GET['name']);
+header('Location: ../EditCheckLIst_Item.php?name='.$_GET['name'].'&list_id='.$listId);
