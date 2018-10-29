@@ -9,7 +9,6 @@ function checktitle(){
     }
 }
 $('#button-addcheck').click(function () {
-
         $.ajax({
             url:'Actions/Creat_CheckList.php',
             type: 'GET',
@@ -69,8 +68,9 @@ $(document).ready(function() {
     $('#newitem').on( 'click', function ()
     {
         var value = gettype();
+        var title = $('#itemtitle').val();
+        alert(title);
 
-        //
         $.ajax({
             url:'Actions/Creat_CheckList.php',
             type: 'GET',
@@ -80,6 +80,7 @@ $(document).ready(function() {
                 'checklistId':$('#checklistID').val(),
                 'required':requred(),
                 'type':gettype(),
+                'title': title,
                 'button':'newitem'
             },
             success:function itemid (data) {
@@ -91,19 +92,19 @@ $(document).ready(function() {
                 switch(value)
                 {
                     case value='checkbox':
-                        type = '<div class="item"> <input type="checkbox" id="'+checkid+'"> <div class="toggle"> <label for="'+checkid+'"><i></i></label></div></div>';
+                        type = '<div class="item"> <input type="checkbox" id="'+checkid+'" disabled> <div class="toggle"> <label for="'+checkid+'"><i></i></label></div></div>';
                         break;
                     case value='shortdata':
-                        type = '<input type="text" class="form-control" id="shortdata'+data+'" maxlength="10">';
+                        type = '<input type="text" class="form-control" id="shortdata'+data+'" maxlength="10" disabled>';
                         break;
                     case value='longdata':
-                        type = '<input type="text" class="form-control" id="longdata'+data+'">';
+                        type = '<input type="text" class="form-control" id="longdata'+data+'" disabled>';
                         break;
                 }
                 var titleid = 'title'.concat(data)
                 var descriptionid = 'description'.concat(data)
                 t.row.add( [
-                    '<input type="text"  class="form-control" id="'+titleid+'">',
+                    '<input type="text"  value="'+title+'" class="form-control" id="'+titleid+'">',
                     type,
                     '<input type="text"  class="form-control" id="'+descriptionid+'">'
                 ] ).node().id = data;
@@ -130,15 +131,15 @@ $(document).ready(function() {
  */
 $(document).ready(function() {
     $('#example').on( 'change', 'tbody tr', function (){
-        function checkvalue(rowId){
+        /*function checkvalue(rowId){
             var id = "check"+rowId;
             if (document.getElementById(id).checked == true)
                  return 'yes';
-            else return 'no'; }
+            else return 'no'; }*/
 
 
         //** check type
-        function getanswer(rowId) {
+        /*function getanswer(rowId) {
             var answer;
             var checkid = "check"+rowId;
             var longdata_id = "longdata"+rowId;
@@ -154,7 +155,7 @@ $(document).ready(function() {
             if(document.getElementById(shortdata_id)!= null){
                 answer = document.getElementById(shortdata_id).value;
                 return answer;}
-        }//**end check type
+        } */    //**end check type
 
         var rowId = this.id;
        // var checkval = checkvalue(rowId);
@@ -170,7 +171,7 @@ $(document).ready(function() {
                 'title':title,
                 'description':description,
                 'itemid':rowId,
-                'answer':getanswer(rowId)
+                /*'answer':getanswer(rowId)*/
             }
         })
     });

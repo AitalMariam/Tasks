@@ -34,15 +34,13 @@
                                 </form>
                             </div>
 
-                            <div id="cardbody" style="display: none">
-                                <div class="col-md-6 col-sm-12 head_inputs">
+                            <div id="cardbody" style="display:">
+                                <div class="col-md-12 col-sm-12 head_inputs">
                                    <!-- <form method="post" action=""> -->
                                         <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <button class="btn btn-primary" id="newitem" disabled name="newitem" >Add new item</button>
-                                            </div>
+                                            <input type="text" class="form-control" id="itemtitle" placeholder="Item title" onkeyup="checkselected()">
                                             <select class="custom-select" id="itemType" onchange="checkselected()" required>
-                                                <option selected disabled>Choose item Type to add</option>
+                                                <option value="" selected disabled>Choose item Type to add</option>
                                                 <option value="checkbox">Checkbox</option>
                                                 <option value="shortdata">Short data (10 character field)</option>
                                                 <option value="longdata">Long Data (Text box)</option>
@@ -50,11 +48,12 @@
                                             <div class="invalid-feedback">
                                                 Please Choice one Type
                                             </div>
-
                                             <div class="custom-control custom-checkbox my-1 mr-sm-2" style="margin-left:25px">
-                                                <input type="checkbox" class="custom-control-input" id="checkItemRequired" onchange="requred()">
+                                                <input type="checkbox" class="custom-control-input"  id="checkItemRequired" onchange="requred()">
                                                 <label class="custom-control-label" for="checkItemRequired">Required</label>
                                             </div>
+                                            <button class="btn btn-primary" id="newitem" disabled name="newitem" >Add new item</button>
+
                                         </div>
                                     <!--</form>-->
                                      <br>
@@ -64,7 +63,7 @@
                                         <thead class="thead-dark">
                                         <tr>
                                             <th scope="col">Title</th>
-                                            <th scope="col">Done</th>
+                                            <th scope="col">Type</th>
                                             <th scope="col">Description</th>
                                         </tr>
                                         </thead>
@@ -91,9 +90,9 @@
     <script>
         function checkselected() {
             var list = document.getElementById('itemType');
-            var btn_newitem = document.getElementById('newtiem');
+            //var btn_newitem = document.getElementById('newtiem');
 
-            if (list.value != null) {
+            if ($('#itemType').val() != '' && $('#itemtitle').val() != '') {
                 document.getElementById('newitem').disabled = false;
             }
             else {

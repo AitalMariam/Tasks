@@ -11,6 +11,10 @@ switch ($ButtonCall) {
 
     case 'edititem':
         editItem($conn,$USER_ID);
+    case 'subitem':
+    SubItem($conn,$USER_ID);
+    case 'deleteitem':
+        Deleteitem($conn);
 }
 
 
@@ -56,4 +60,21 @@ function editItem($conn,$userid)
         }
 
     }
+}
+
+function SubItem($conn,$userid)
+{
+    $itemid = $_GET['itemid'];
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $query1 = "UPDATE item_list set Submited = true  where id = '$itemid' ";
+    $query2 = "insert into submit_item (item_list_id, user_id, ipAdress) values ('$itemid' ,'$userid' ,'$ip')";
+    $conn->exec($query1);
+    $conn->exec($query2);
+}
+
+function Deleteitem($conn)
+{
+    $itemid = $_GET['itemid'];
+    $query = "DELETE FROM item_list where id = '$itemid'";
+    $conn->exec($query);
 }

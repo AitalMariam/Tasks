@@ -75,8 +75,8 @@ $(document).ready(function() {
                     '      <label for="required'+data+'" ><i></i></label>' +
                     '     </div>' +
                     '</div>',
-                    '<button id="submit'+data+'"  class="btn btn-success"><i class="fas fa-check"></i></button>',
-                    '<button class="btn btn-danger"><i class="fas fa-trash"></i></button>'
+                    '<button id="submit'+data+'" onclick="submit('+data+')" class="btn btn-success"><i class="fas fa-check"></i></button>',
+                    '<button id="submit'+data+'" onclick="deleteitem('+data+')" class="btn btn-danger"><i class="fas fa-trash"></i></button>'
                 ] ).node().id = data;
                 t.draw( false );
             }
@@ -188,3 +188,84 @@ $(document).ready(function() {
 // end Submit item
 });
 
+// Submit an item
+function submit(itemid) {
+    // Validation;
+    var title = document.getElementById('title'.concat(itemid));
+    var answer;
+    /** get answer type **/
+    if (document.getElementById('shortdata'.concat(itemid)) != null ){
+        answer = 'shortdata'.concat(itemid);
+    }
+    if (document.getElementById('longdata'.concat(itemid)) != null){
+        answer = 'longdata'.concat(itemid);
+    }
+    if (document.getElementById('check'.concat(itemid)) != null){
+        answer = 'check'.concat(itemid);
+    }
+    /** end get answer type **/
+
+    if($('#'.concat(answer)).prop('required')){
+        if(answer == 'check'.concat(itemid)){
+            // hna nxofoh wax checked wla la
+            if (document.getElementById(answer).checked == false) {
+                alert('This answer is required the checkbox must be toggle on ');
+            }
+        }
+        if (answer == 'shortdata'.concat(itemid) || answer == 'longdata'.concat(itemid)) {
+            if($('#'.concat(itemid)).val() == ''){
+                alert('This answer is required , please answer the question in order to submit');
+            }
+        }
+
+    }else {
+        $.ajax({
+            url: 'Actions/Edite_single_item_fromlist.php',
+            type: 'GET',
+            dataType: 'text',
+            data:
+                {
+                    'button': 'subitem',
+                    'itemid': itemid,
+                },
+        })
+        // var row = document.getElementById(itemid);
+        //row.parentNode.removeChild(itemid);
+        var row = document.getElementById(itemid);
+        var table = row.parentNode;
+        while ( table && table.tagName != 'TABLE' )
+            table = table.parentNode;
+        if ( !table )
+            return;
+        table.deleteRow(row.rowIndex);
+
+    }
+
+
+
+}
+// end submit item
+
+// delet an item
+function deleteitem(itemid) {
+     $.ajax({
+            url: 'Actions/Edite_single_item_fromlist.php',
+            type: 'GET',
+            dataType: 'text',
+            data:
+                {
+                    'button': 'deleteitem',
+                    'itemid': itemid,
+                },
+        })
+
+
+        var row = document.getElementById(itemid);
+        var table = row.parentNode;
+        while ( table && table.tagName != 'TABLE' )
+            table = table.parentNode;
+        if ( !table )
+            return;
+        table.deleteRow(row.rowIndex);
+
+} // delete an item

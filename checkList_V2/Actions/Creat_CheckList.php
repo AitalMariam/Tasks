@@ -12,7 +12,7 @@ switch ($ButtonCall) {
         creatItem($conn);
         break;
     case 'edititem':
-        editItem($conn,$USER_ID);
+        editItem($conn);
 
 }
 
@@ -33,9 +33,10 @@ function creatItem($conn)
     $checklistid = $_GET['checklistId'];
     $required = $_GET['required'];
     $type = $_GET['type'];
-    $date = date("Y-m-d");
+    $title = $_GET['title'];
+    $date = date("Y-m-d H:i:s");
 
-    $query = "INSERT INTO item_list (list_id,required,dataType,creationDate) values ('$checklistid',$required,'$type','$date')";
+    $query = "INSERT INTO item_list (list_id,title,required,dataType,creationDate) values ('$checklistid','$title',$required,'$type','$date')";
     $conn->exec($query);
 
     echo $conn->lastInsertId();
@@ -44,7 +45,7 @@ function creatItem($conn)
 /**
  * save row changes
  */
-function editItem($conn,$userid)
+function editItem($conn)
 {
 
     if(!empty($_GET['title'])){
@@ -58,7 +59,7 @@ function editItem($conn,$userid)
         $conn->exec("UPDATE item_list SET description = '$descreption' WHERE id='$id'");
     }
 
-    if(!empty($_GET['answer'])){
+    /*if(!empty($_GET['answer'])){
 
         $id = $_GET['itemid'];
         $answer = $_GET['answer'];
@@ -76,5 +77,5 @@ function editItem($conn,$userid)
             $conn->exec($query);
         }
 
-    }
+    }*/
 }

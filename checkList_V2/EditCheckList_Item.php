@@ -130,10 +130,11 @@
                                                      </div>
                                                 </td>
                                                 <td>
-                                                    <button id="submit'.$item_id.'" class="btn btn-success"><i class="fas fa-check"></i></button>
+                                                    
+                                                    <button id="submit'.$item_id.'"  onclick="submit('.$item_id.')" class="btn btn-success"><i class="fas fa-check"></i></button>
                                                 </td>
                                                 <td>
-                                                    <button type="submit'.$item_id.'"  class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                    <button id="delete'.$item_id.'" onclick="deleteitem('.$item_id.')"  class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                                 </td>
                                                </tr>';
                                     }
