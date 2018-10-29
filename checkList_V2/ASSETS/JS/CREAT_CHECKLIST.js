@@ -63,13 +63,14 @@ function gettype(){
 $(document).ready(function() {
     var t = $('#example').DataTable({
         "paging": false,
+        rowReorder: true
     });
-
+    var itemOrder = 0;
     $('#newitem').on( 'click', function ()
     {
         var value = gettype();
         var title = $('#itemtitle').val();
-
+        itemOrder = itemOrder + 1;
 
         $.ajax({
             url:'Actions/Creat_CheckList.php',
@@ -106,6 +107,7 @@ $(document).ready(function() {
                 var titleid = 'title'.concat(data)
                 var descriptionid = 'description'.concat(data)
                 t.row.add( [
+                    '<label>'+itemOrder+'</label>',
                     '<input type="text"  value="'+title+'" class="form-control" id="'+titleid+'">',
                     '<input type="text"  class="form-control" id="'+descriptionid+'">',
                     type,
@@ -122,6 +124,35 @@ $(document).ready(function() {
 
     // Automatically add a first row of data
     $('#addRow').click();
+
+    // reorder
+    t.on( 'row-reorder', function ( e, diff, edit ) {
+
+        if((typeof (diff[0].oldPosition + 1)  != 'undefined') || (typeof (diff[0].newPosition + 1)  != 'undefined'))
+        {
+            var old = new Array();
+
+            for ( var i=0, ien=diff.length ; i<ien ; i++ )
+            {
+                old.push(diff[i].oldPosition + 1 )
+            }
+            // send to script
+            $.ajax({
+                url:'Actions/ReOrder.php',
+                type: 'GET',
+                dataType: 'html',
+                data:
+                    {
+                        'oldposition':old
+                    },
+                success: function (data) {
+
+
+                }
+            })
+        }
+
+    } );
 });
 //END CREAT NEW ITEN FOR CURRENT LIST
 

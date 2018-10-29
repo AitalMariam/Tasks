@@ -39,7 +39,20 @@ function creatItem($conn)
     $query = "INSERT INTO item_list (list_id,title,required,dataType,creationDate,Submited) values ('$checklistid','$title',$required,'$type','$date','no')";
     $conn->exec($query);
 
-    echo $conn->lastInsertId();
+    //
+    $insertedId = $conn->lastInsertId();
+    //get count of items iin current list
+    $sql = "SELECT count(*) FROM item_list WHERE list_id = '$checklistid'";
+    $result = $conn->prepare($sql);
+    $result->execute();
+    $number_of_rows = $result->fetchColumn();
+    //
+    //Set item order
+    $query = "UPDATE item_list SET item_order = '$number_of_rows' WHERE id = '$insertedId'";
+    $conn->exec($query);
+    //
+
+    echo $insertedId;
 }
 
 /**

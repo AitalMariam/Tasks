@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 29, 2018 at 10:40 PM
+-- Generation Time: Oct 26, 2018 at 05:33 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -36,7 +36,14 @@ CREATE TABLE IF NOT EXISTS `check_list` (
   `creationDate` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_A1488C997E3C61F9` (`owner_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `check_list`
+--
+
+INSERT INTO `check_list` (`id`, `owner_id`, `title`, `creationDate`) VALUES
+(78, 2, 'Shopping ', '2018-10-26 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -50,10 +57,15 @@ CREATE TABLE IF NOT EXISTS `item_answer` (
   `answer` text NOT NULL,
   `item_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `item_answer_ibfk_1` (`item_id`),
-  KEY `item_answer_ibfk_2` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `item_answer`
+--
+
+INSERT INTO `item_answer` (`id`, `answer`, `item_id`, `user_id`) VALUES
+(22, 'no', 97, 2);
 
 -- --------------------------------------------------------
 
@@ -65,16 +77,22 @@ DROP TABLE IF EXISTS `item_list`;
 CREATE TABLE IF NOT EXISTS `item_list` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `list_id` int(11) NOT NULL,
-  `item_order` int(50) DEFAULT NULL,
-  `title` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `title` longtext COLLATE utf8_unicode_ci,
   `description` longtext COLLATE utf8_unicode_ci,
   `dataType` longtext COLLATE utf8_unicode_ci NOT NULL,
   `required` tinyint(1) NOT NULL,
   `creationDate` datetime NOT NULL,
-  `Submited` text COLLATE utf8_unicode_ci NOT NULL,
+  `delDate` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_8CF8BCE33DAE168B` (`list_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=279 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `item_list`
+--
+
+INSERT INTO `item_list` (`id`, `list_id`, `title`, `description`, `dataType`, `required`, `creationDate`, `delDate`) VALUES
+(97, 78, 'Buy 10 eggs', 'I need 10 eggs to make some cup cake :)', 'checkbox', 1, '2018-10-26 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -87,12 +105,12 @@ CREATE TABLE IF NOT EXISTS `submit_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `item_list_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `submitDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `submit` longtext COLLATE utf8_unicode_ci NOT NULL,
   `ipAdress` longtext COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_2FDD337336F330DF` (`item_list_id`),
   KEY `IDX_2FDD3373A76ED395` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -110,6 +128,15 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
+(1, 'test', 'test@gmail.com', 'aomkjwdkj'),
+(2, 'test', 'test@gmail.com', 'test'),
+(3, 'test', 'mariamaital98@gmail.com', 'mariamaital98@gmail.com');
+
+--
 -- Constraints for dumped tables
 --
 
@@ -117,27 +144,20 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Constraints for table `check_list`
 --
 ALTER TABLE `check_list`
-  ADD CONSTRAINT `FK_A1488C997E3C61F9` FOREIGN KEY (`owner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `item_answer`
---
-ALTER TABLE `item_answer`
-  ADD CONSTRAINT `item_answer_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item_list` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `item_answer_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_A1488C997E3C61F9` FOREIGN KEY (`owner_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `item_list`
 --
 ALTER TABLE `item_list`
-  ADD CONSTRAINT `FK_8CF8BCE33DAE168B` FOREIGN KEY (`list_id`) REFERENCES `check_list` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_8CF8BCE33DAE168B` FOREIGN KEY (`list_id`) REFERENCES `check_list` (`id`);
 
 --
 -- Constraints for table `submit_item`
 --
 ALTER TABLE `submit_item`
-  ADD CONSTRAINT `FK_2FDD337336F330DF` FOREIGN KEY (`item_list_id`) REFERENCES `item_list` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_2FDD3373A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_2FDD337336F330DF` FOREIGN KEY (`item_list_id`) REFERENCES `item_list` (`id`),
+  ADD CONSTRAINT `FK_2FDD3373A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
