@@ -12,9 +12,11 @@ foreach ($lists as $item)
 {
     //
     //Get items
-    $items = $conn->prepare("SELECT id, title, description,dataType FROM item_list WHERE list_id = '$item[0]' ");
+    $sub = 'no';
+    $items = $conn->prepare("SELECT id, title, description,dataType FROM item_list WHERE list_id = '$item[0]' and Submited = '0' ");
     $items->execute();
     $result = array();
+
     foreach ($items as $list_item)
     {
         // Get LI Answer for current user
@@ -48,8 +50,9 @@ foreach ($lists as $item)
     );
 
     array_push($checklists,$checlist);
+    var_dump($result);
 }
 
 
-$_SESSION['check_list'] = $checklists;
+$_SESSION['list_items'] = $checklists;
 header('Location: ../EditCheckLIst.php');

@@ -69,7 +69,7 @@ $(document).ready(function() {
     {
         var value = gettype();
         var title = $('#itemtitle').val();
-        alert(title);
+
 
         $.ajax({
             url:'Actions/Creat_CheckList.php',
@@ -86,27 +86,30 @@ $(document).ready(function() {
             success:function itemid (data) {
                 // hna jib id w sf
                 //document.getElementById('itemID').value = data;
-                var checkid = 'check'.concat(data);
-
                 var type;
+                var checked = '';
+                if(requred() == true)
+                    checked = 'checked';
                 switch(value)
                 {
                     case value='checkbox':
-                        type = '<div class="item"> <input type="checkbox" id="'+checkid+'" disabled> <div class="toggle"> <label for="'+checkid+'"><i></i></label></div></div>';
+                        type ='CheckBox';//'<div class="item"> <input type="checkbox" id="'+checkid+'" disabled> <div class="toggle"> <label for="'+checkid+'"><i></i></label></div></div>';
+
                         break;
                     case value='shortdata':
-                        type = '<input type="text" class="form-control" id="shortdata'+data+'" maxlength="10" disabled>';
+                        type = 'Short';//'<input type="text" class="form-control" id="shortdata'+data+'" maxlength="10" disabled>';
                         break;
                     case value='longdata':
-                        type = '<input type="text" class="form-control" id="longdata'+data+'" disabled>';
+                        type = 'Long Data';//'<input type="text" class="form-control" id="longdata'+data+'" disabled>';
                         break;
                 }
                 var titleid = 'title'.concat(data)
                 var descriptionid = 'description'.concat(data)
                 t.row.add( [
                     '<input type="text"  value="'+title+'" class="form-control" id="'+titleid+'">',
+                    '<input type="text"  class="form-control" id="'+descriptionid+'">',
                     type,
-                    '<input type="text"  class="form-control" id="'+descriptionid+'">'
+                    '<div class="item"><input type="checkbox" id="required'+data+'" '+checked+'> <div class="toggle"> <label for="required'+data+'"><i></i></label></div></div>'
                 ] ).node().id = data;
                 t.draw( false );
             }
@@ -156,6 +159,13 @@ $(document).ready(function() {
                 answer = document.getElementById(shortdata_id).value;
                 return answer;}
         } */    //**end check type
+        function requred2(rowId){
+            if ($('#required'.concat(rowId)).is(':checked'))
+                return 1;
+            else return 0;
+
+        }
+
 
         var rowId = this.id;
        // var checkval = checkvalue(rowId);
@@ -171,6 +181,7 @@ $(document).ready(function() {
                 'title':title,
                 'description':description,
                 'itemid':rowId,
+                'required':requred2(rowId)
                 /*'answer':getanswer(rowId)*/
             }
         })

@@ -31,8 +31,9 @@ $(document).ready(function() {
     $('#newitem').on( 'click', function ()
     {
         var value = gettype();
+        var title = $('#itemtitle').val();
         var check = ' ';
-        if(value == 1)
+        if(requred() == 1)
             check = 'checked';
 
         //
@@ -45,38 +46,40 @@ $(document).ready(function() {
                     'checklistId':$('#list_id').val(),
                     'required':requred(),
                     'type':gettype(),
+                    'title':title,
                     'button':'newitem'
                 },
             success:function itemid (data) {
                 //document.getElementById('itemID').value = data;
-                var checkid = 'check'.concat(data);
+                //var checkid = 'check'.concat(data);
                 var type;
                 switch(value)
                 {
                     case value='checkbox':
-                        type = '<div class="item"> <input type="checkbox" id="'+checkid+'"> <div class="toggle"> <label for="'+checkid+'"><i></i></label></div></div>';
+                        type = 'Checkbox';//'<div class="item"> <input type="checkbox" id="'+checkid+'"> <div class="toggle"> <label for="'+checkid+'"><i></i></label></div></div>';
                         break;
                     case value='shortdata':
-                        type = '<input type="text" class="form-control" id="shortdata'+data+'" maxlength="10">';
+                        type = 'Short data';//'<input type="text" class="form-control" id="shortdata'+data+'" maxlength="10">';
                         break;
                     case value='longdata':
-                        type = '<input type="text" class="form-control" id="longdata'+data+'">';
+                        type =  'Long Data';//'<input type="text" class="form-control" id="longdata'+data+'">';
                         break;
                 }
                 var titleid = 'title'.concat(data);
                 var descriptionid = 'description'.concat(data);
+
                 t.row.add( [
-                    '<input type="text"  class="form-control" id="'+titleid+'">',
-                    type,
+                    '<input value="'+title+'" type="text"  class="form-control" id="'+titleid+'">',
                     '<input type="text"  class="form-control" id="'+descriptionid+'">',
+                    type,
                     ' <div class="item">' +
                     '    <input type="checkbox"  id="required'+data+'" '+check+' >' +
                     '    <div class="toggle">' +
                     '      <label for="required'+data+'" ><i></i></label>' +
                     '     </div>' +
                     '</div>',
-                    '<button id="submit'+data+'" onclick="submit('+data+')" class="btn btn-success"><i class="fas fa-check"></i></button>',
-                    '<button id="submit'+data+'" onclick="deleteitem('+data+')" class="btn btn-danger"><i class="fas fa-trash"></i></button>'
+                   // '<button id="submit'+data+'" onclick="submit('+data+')" class="btn btn-success"><i class="fas fa-check"></i></button>',
+                    '<button id="'+data+'" onclick="deleteitem('+data+')" class="btn btn-danger"><i class="fas fa-trash"></i></button>'
                 ] ).node().id = data;
                 t.draw( false );
             }
@@ -92,7 +95,7 @@ $(document).ready(function() {
 
 
 //INSERT ROW CONTENT
-$(document).ready(function() {
+
     $('#EditeChecklist').on( 'change', 'tbody tr', function (){
         function checkvalue(rowId){
             var id = "check"+rowId;
@@ -167,6 +170,7 @@ $(document).ready(function() {
     });
 });//END INSERTING
 
+/*
 // Submit an item
 
     $('').on( 'click', function () {
@@ -187,13 +191,14 @@ $(document).ready(function() {
     });
 // end Submit item
 });
+*/
 
-// Submit an item
+/* Submit an item
 function submit(itemid) {
     // Validation;
     var title = document.getElementById('title'.concat(itemid));
     var answer;
-    /** get answer type **/
+    // get answer type
     if (document.getElementById('shortdata'.concat(itemid)) != null ){
         answer = 'shortdata'.concat(itemid);
     }
@@ -203,7 +208,7 @@ function submit(itemid) {
     if (document.getElementById('check'.concat(itemid)) != null){
         answer = 'check'.concat(itemid);
     }
-    /** end get answer type **/
+    // end get answer type
 
     if($('#'.concat(answer)).prop('required')){
         if(answer == 'check'.concat(itemid)){
@@ -242,9 +247,9 @@ function submit(itemid) {
     }
 
 
+end submit item */
 
-}
-// end submit item
+
 
 // delet an item
 function deleteitem(itemid) {

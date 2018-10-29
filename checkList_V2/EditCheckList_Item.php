@@ -28,13 +28,11 @@
                         </div>
                         <input type="text" id="list_id" style="display: none;" value="<?php echo $_GET['list_id'] ?>">
                     </div>
-                    <div class="col-md-6 col-sm-12 head_inputs">
+                    <div class="col-md-12 col-sm-12 head_inputs">
                         <!-- <form method="post" action=""> -->
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-primary" id="newitem" disabled name="newitem" >Add new item</button>
-                            </div>
-                            <select class="custom-select" id="itemType" onchange="checkselected()" required>
+                            <input type="text" class="form-control" id="itemtitle" placeholder="Item title" onkeyup="checkselected()">
+                            <select class="custom-select" id="itemType" onchange="checkselected()">
                                 <option selected disabled>Choose item Type to add</option>
                                 <option value="checkbox">Checkbox</option>
                                 <option value="shortdata">Short data (10 character field)</option>
@@ -43,11 +41,12 @@
                             <div class="invalid-feedback">
                                 Please Choice one Type
                             </div>
-
                             <div class="custom-control custom-checkbox my-1 mr-sm-2" style="margin-left:25px">
-                                <input type="checkbox" class="custom-control-input" id="checkItemRequired" onchange="requred()">
+                                <input type="checkbox" class="custom-control-input"  id="checkItemRequired" onchange="requred()">
                                 <label class="custom-control-label" for="checkItemRequired">Required</label>
                             </div>
+                            <button class="btn btn-primary" id="newitem" disabled name="newitem" >Add new item</button>
+
                         </div>
                         <!--</form>-->
                         <br>
@@ -56,10 +55,9 @@
                             <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Title</th>
-                                <th scope="col">Done</th>
                                 <th scope="col">Description</th>
+                                <th scope="col">Type</th>
                                 <th scope="col">Required</th>
-                                <th scope="col">Submit</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
@@ -71,6 +69,9 @@
                                         echo '<tr id="'.$item_id.'">
                                                 <th scope="row"><input type="text" id="title'.$item_id.'"  class="form-control" value="'.$item['item_title'].'" required> <div class="invalid-feedback" value="Title 1">This field is requered</div></th>
                                                 ';
+                                        echo '<td>
+                                                    <input type="text"  class="form-control" id="description'.$item_id.'" value="'.$item['item_description'].'" required> <div class="invalid-feedback">This field is requered</div>
+                                               </td>';
                                         // set data type
                                         echo '<td id="'.$item_id.'">';
 
@@ -104,23 +105,25 @@
                                         switch($item['item_datatype'])
                                         {
                                             case $item['item_datatype']='checkbox':
-                                                echo '<div class="item"> ';
+                                                echo 'Check Box';
+                                                /* echo '<div class="item"> ';
                                                 if( $answer == 'yes')
                                                     echo '<input type="checkbox" id="check'.$item_id.'" '.$required.' checked>';
                                                 else
                                                     echo '<input id="check'.$item_id.'" type="checkbox" '.$required.'> ';
-                                                echo '<div class="toggle"> <label for="check'.$item_id.'" ><i></i></label></div></div>';
+                                                echo '<div class="toggle"> <label for="check'.$item_id.'" ><i></i></label></div></div>'; */
                                                 break;
                                             case $item['item_datatype']='shortdata':
-                                                echo '<input type="text" id="shortdata'.$item_id.'" '.$required.' class="form-control" maxlength="10" value='.$answer.'>';
+                                                echo 'Short Data';
+                                                /*echo '<input type="text" id="shortdata'.$item_id.'" '.$required.' class="form-control" maxlength="10" value='.$answer.'>';*/
                                                 break;
                                             case $item['item_datatype']='longdata':
-                                                echo '<input id="longdata'.$item_id.'" '.$required.' type="text" class="form-control" value = '.$answer.'>';
+                                                echo 'Long Data';
+                                                /*echo '<input id="longdata'.$item_id.'" '.$required.' type="text" class="form-control" value = '.$answer.'>';*/
+                                                break;
 
                                         }
-                                         echo   '</td><td>
-                                                    <input type="text"  class="form-control" id="description'.$item_id.'" value="'.$item['item_description'].'" required> <div class="invalid-feedback">This field is requered</div>
-                                                </td>
+                                         echo   '</td>
                                                 <td>
                                                     <div class="item">
                                                         <input type="checkbox"  id="required'.$item_id.'" '.$checked.'>  
@@ -128,10 +131,6 @@
                                                             <label for="required'.$item_id.'" ><i></i></label>
                                                         </div>
                                                      </div>
-                                                </td>
-                                                <td>
-                                                    
-                                                    <button id="submit'.$item_id.'"  onclick="submit('.$item_id.')" class="btn btn-success"><i class="fas fa-check"></i></button>
                                                 </td>
                                                 <td>
                                                     <button id="delete'.$item_id.'" onclick="deleteitem('.$item_id.')"  class="btn btn-danger"><i class="fas fa-trash"></i></button>
@@ -151,14 +150,14 @@
 <script src="ASSETS/JS/Edite_Checklist.js"></script>
 <script>
     function checkselected() {
-        var list = document.getElementById('itemType');
-        var btn_newitem = document.getElementById('newtiem');
+        //var list = document.getElementById('itemType');
+        //var btn_newitem = document.getElementById('newtiem');
 
-        if (list.value != null) {
-            document.getElementById('newitem').disabled = false;
+        if ($('#itemtitle').val() == '' || $('#itemType').val() == null) {
+            document.getElementById('newitem').disabled = true;
         }
         else {
-            document.getElementById('newitem').disabled = true;
+            document.getElementById('newitem').disabled = false;
         }
     }
 </script>

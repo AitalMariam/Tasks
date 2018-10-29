@@ -34,13 +34,13 @@
                                 </form>
                             </div>
 
-                            <div id="cardbody" style="display:">
+                            <div id="cardbody" style="display:none">
                                 <div class="col-md-12 col-sm-12 head_inputs">
                                    <!-- <form method="post" action=""> -->
                                         <div class="input-group">
                                             <input type="text" class="form-control" id="itemtitle" placeholder="Item title" onkeyup="checkselected()">
-                                            <select class="custom-select" id="itemType" onchange="checkselected()" required>
-                                                <option value="" selected disabled>Choose item Type to add</option>
+                                            <select class="custom-select" id="itemType" onchange="checkselected()">
+                                                <option selected disabled>Choose item Type to add</option>
                                                 <option value="checkbox">Checkbox</option>
                                                 <option value="shortdata">Short data (10 character field)</option>
                                                 <option value="longdata">Long Data (Text box)</option>
@@ -63,8 +63,9 @@
                                         <thead class="thead-dark">
                                         <tr>
                                             <th scope="col">Title</th>
-                                            <th scope="col">Type</th>
                                             <th scope="col">Description</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Required</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -89,14 +90,14 @@
 
     <script>
         function checkselected() {
-            var list = document.getElementById('itemType');
+            //var list = document.getElementById('itemType');
             //var btn_newitem = document.getElementById('newtiem');
 
-            if ($('#itemType').val() != '' && $('#itemtitle').val() != '') {
-                document.getElementById('newitem').disabled = false;
+            if ($('#itemtitle').val() == '' || $('#itemType').val() == null) {
+                document.getElementById('newitem').disabled = true;
             }
             else {
-                document.getElementById('newitem').disabled = true;
+                document.getElementById('newitem').disabled = false;
             }
         }
     </script>

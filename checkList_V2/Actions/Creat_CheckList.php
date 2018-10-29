@@ -36,7 +36,7 @@ function creatItem($conn)
     $title = $_GET['title'];
     $date = date("Y-m-d H:i:s");
 
-    $query = "INSERT INTO item_list (list_id,title,required,dataType,creationDate) values ('$checklistid','$title',$required,'$type','$date')";
+    $query = "INSERT INTO item_list (list_id,title,required,dataType,creationDate,Submited) values ('$checklistid','$title',$required,'$type','$date','no')";
     $conn->exec($query);
 
     echo $conn->lastInsertId();
@@ -57,6 +57,12 @@ function editItem($conn)
         $id = $_GET['itemid'];
         $descreption = $_GET['description'];
         $conn->exec("UPDATE item_list SET description = '$descreption' WHERE id='$id'");
+    }
+    if(!empty($_GET['required'] == 0 || $_GET['required'] == 1)){
+        $id = $_GET['itemid'];
+        $required = $_GET['required'];
+        echo $required;
+        $conn->exec("UPDATE item_list SET required = '$required' WHERE id='$id'");
     }
 
     /*if(!empty($_GET['answer'])){
