@@ -112,7 +112,7 @@ $(document).ready(function() {
                     '<input type="text"  class="form-control" id="'+descriptionid+'">',
                     type,
                     '<div class="item"><input type="checkbox" id="required'+data+'" '+checked+'> <div class="toggle"> <label for="required'+data+'"><i></i></label></div></div>',
-                    '<label>'+itemOrder+'</label>'
+
                 ] ).node().id = data;
                 t.draw( false );
             }

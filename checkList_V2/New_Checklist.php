@@ -67,7 +67,6 @@
                                             <th scope="col">Description</th>
                                             <th scope="col">Type</th>
                                             <th scope="col">Required</th>
-                                            <th scope="col">Order</th>
                                         </tr>
                                         </thead>
                                         <tbody>
