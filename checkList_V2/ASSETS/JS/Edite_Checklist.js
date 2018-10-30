@@ -25,6 +25,7 @@ function gettype(){
 $(document).ready(function() {
     var t = $('#EditeChecklist').DataTable({
         "paging": false,
+        rowReorder: true
     });
 
     /** New Item **/
@@ -37,6 +38,7 @@ $(document).ready(function() {
             check = 'checked';
 
         //
+        var count;
         $.ajax({
             url:'Actions/Creat_CheckList.php',
             type: 'GET',
@@ -50,6 +52,7 @@ $(document).ready(function() {
                     'button':'newitem'
                 },
             success:function itemid (data) {
+                count = data.length + 3;
                 //document.getElementById('itemID').value = data;
                 //var checkid = 'check'.concat(data);
                 var type;
@@ -69,6 +72,7 @@ $(document).ready(function() {
                 var descriptionid = 'description'.concat(data);
 
                 t.row.add( [
+                    '<label>'+count+'</label>',
                     '<input value="'+title+'" type="text"  class="form-control" id="'+titleid+'">',
                     '<input type="text"  class="form-control" id="'+descriptionid+'">',
                     type,
@@ -91,11 +95,27 @@ $(document).ready(function() {
     // Automatically add a first row of data
     $('#addRow').click();
 
-//END CREAT NEW ITEN FOR CURRENT LIST
+    //ReOrder
+    t.on( 'row-reorder', function ( e, diff, edit ) {
+        var pos = new Array();
+        for (var i = 1; i < e.target.rows.length; i++) {
+            //var id = e.target.rows[i].cells[0].innerHTML.split('<label>');
+            pos.push(e.target.rows[i].id);
+        }
+
+        $.ajax({
+            url:'Actions/ReOrder.php',
+            type: 'GET',
+            dataType: 'html',
+            data:
+                {
+                    'position':pos
+                },
+        })
+    });
 
 
-//INSERT ROW CONTENT
-
+    //INSERT ROW CONTENT
     $('#EditeChecklist').on( 'change', 'tbody tr', function (){
         function checkvalue(rowId){
             var id = "check"+rowId;
@@ -168,7 +188,8 @@ $(document).ready(function() {
                 }
         })
     });
-});//END INSERTING
+});
+//END INSERTING
 
 /*
 // Submit an item

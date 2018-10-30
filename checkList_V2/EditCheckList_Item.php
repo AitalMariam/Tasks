@@ -54,6 +54,7 @@
                         <table class="table table-striped table-light table-hover" id="EditeChecklist">
                             <thead class="thead-dark">
                             <tr>
+                                <th scope="col">Position</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Type</th>
@@ -63,11 +64,14 @@
                             </thead>
                             <tbody>
                                 <?php
+                                    $i = 0;
                                     foreach ($_SESSION['list_items'] as $item)
                                     {
+                                        $i = $i +1 ;
                                         $item_id = $item['item_id'];
-                                        echo '<tr id="'.$item_id.'">
-                                                <th scope="row"><input type="text" id="title'.$item_id.'"  class="form-control" value="'.$item['item_title'].'" required> <div class="invalid-feedback" value="Title 1">This field is requered</div></th>
+                                        echo '<tr id="'.$item_id.'">';
+                                        echo '<td><label>'.$i.'</label></td>';
+                                        echo      ' <th scope="row"><input type="text" id="title'.$item_id.'"  class="form-control" value="'.$item['item_title'].'" required> <div class="invalid-feedback" value="Title 1">This field is requered</div></th>
                                                 ';
                                         echo '<td>
                                                     <input type="text"  class="form-control" id="description'.$item_id.'" value="'.$item['item_description'].'" required> <div class="invalid-feedback">This field is requered</div>
@@ -83,16 +87,6 @@
                                         else
                                             $answer = '';
 
-                                        /**************************************/
-                                        // set required or not
-                                       /* function getrequired($item_req){
-                                            $required = ' ';
-                                            if($item_req == '1'){
-                                                $required = 'required';
-                                                echo "<script>alert('hm : ".$item_req."') </script>";
-                                                }
-                                                return $required;
-                                        }//end set required or not*/
 
                                         $required = ' ';
                                         if($item['item_required'] == '1'){
@@ -106,20 +100,12 @@
                                         {
                                             case $item['item_datatype']='checkbox':
                                                 echo 'Check Box';
-                                                /* echo '<div class="item"> ';
-                                                if( $answer == 'yes')
-                                                    echo '<input type="checkbox" id="check'.$item_id.'" '.$required.' checked>';
-                                                else
-                                                    echo '<input id="check'.$item_id.'" type="checkbox" '.$required.'> ';
-                                                echo '<div class="toggle"> <label for="check'.$item_id.'" ><i></i></label></div></div>'; */
                                                 break;
                                             case $item['item_datatype']='shortdata':
                                                 echo 'Short Data';
-                                                /*echo '<input type="text" id="shortdata'.$item_id.'" '.$required.' class="form-control" maxlength="10" value='.$answer.'>';*/
                                                 break;
                                             case $item['item_datatype']='longdata':
                                                 echo 'Long Data';
-                                                /*echo '<input id="longdata'.$item_id.'" '.$required.' type="text" class="form-control" value = '.$answer.'>';*/
                                                 break;
 
                                         }
@@ -149,9 +135,8 @@
 <?php include ('master/JSlinks.php');?>
 <script src="ASSETS/JS/Edite_Checklist.js"></script>
 <script>
-    function checkselected() {
-        //var list = document.getElementById('itemType');
-        //var btn_newitem = document.getElementById('newtiem');
+    function checkselected()
+    {
 
         if ($('#itemtitle').val() == '' || $('#itemType').val() == null) {
             document.getElementById('newitem').disabled = true;
