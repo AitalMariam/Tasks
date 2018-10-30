@@ -54,5 +54,5 @@ foreach ($lists as $item)
 }
 
 
-$_SESSION['list_items'] = $checklists;
+$_SESSION['Edit_list_items'] = $checklists;
 header('Location: ../EditCheckLIst.php');

@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php //include ('master/NavBar.php');?>
-<?php session_start(); $lists = $_SESSION['check_list']; ?>
+<?php session_start(); $lists = $_SESSION['Edit_list_items']; ?>
 <div class="container">
     <div class="row">
 

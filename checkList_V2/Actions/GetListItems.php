@@ -20,7 +20,6 @@ foreach ($items as $list_item)
             'answer_content'=>$val['answer']
         );
         array_push($answerelement,$temp);
-        var_dump($temp);
     }
 
     //
@@ -34,7 +33,8 @@ foreach ($items as $list_item)
     );
     array_push($result,$li);
 }
-//var_dump($result);
+
 
 $_SESSION['list_items'] = $result;
+
 header('Location: ../EditCheckLIst_Item.php?name='.$_GET['name'].'&list_id='.$listId);
