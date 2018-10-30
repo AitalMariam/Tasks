@@ -108,17 +108,15 @@ $(document).ready(function() {
                 var descriptionid = 'description'.concat(data)
                 t.row.add( [
                     '<label>'+itemOrder+'</label>',
-                    '<input type="text"  value="'+title+'" class="form-control" id="'+titleid+'">',
+                    '<input type="text"  value="'+title+'"  class="form-control" id="'+titleid+'">',
                     '<input type="text"  class="form-control" id="'+descriptionid+'">',
                     type,
-                    '<div class="item"><input type="checkbox" id="required'+data+'" '+checked+'> <div class="toggle"> <label for="required'+data+'"><i></i></label></div></div>'
+                    '<div class="item"><input type="checkbox" id="required'+data+'" '+checked+'> <div class="toggle"> <label for="required'+data+'"><i></i></label></div></div>',
+                    '<label>'+itemOrder+'</label>'
                 ] ).node().id = data;
                 t.draw( false );
             }
         })
-
-       // var itemid = document.getElementById('itemID').value;
-        //alert(itemid+' outsiid of XD');
 
     } );
 
@@ -127,31 +125,22 @@ $(document).ready(function() {
 
     // reorder
     t.on( 'row-reorder', function ( e, diff, edit ) {
-
-        if((typeof (diff[0].oldPosition + 1)  != 'undefined') || (typeof (diff[0].newPosition + 1)  != 'undefined'))
-        {
-            var old = new Array();
-
-            for ( var i=0, ien=diff.length ; i<ien ; i++ )
-            {
-                old.push(diff[i].oldPosition + 1 )
-            }
-            // send to script
-            $.ajax({
-                url:'Actions/ReOrder.php',
-                type: 'GET',
-                dataType: 'html',
-                data:
-                    {
-                        'oldposition':old
-                    },
-                success: function (data) {
-
-
-                }
-            })
+        var pos = new Array();
+        for (var i = 1; i < e.target.rows.length; i++) {
+            //var id = e.target.rows[i].cells[0].innerHTML.split('<label>');
+            pos.push(e.target.rows[i].id);
         }
 
+
+        $.ajax({
+            url:'Actions/ReOrder.php',
+            type: 'GET',
+            dataType: 'html',
+            data:
+                {
+                    'position':pos
+                },
+        })
     } );
 });
 //END CREAT NEW ITEN FOR CURRENT LIST
@@ -159,45 +148,17 @@ $(document).ready(function() {
 
 //INSERT ROW CONTENT
 /**
- * ERR 1 - action not receiving the data
- * Issue 2 - if check var in data is a checkbox , it passed only 'ON'
- * Datatable Issue in reinitialise
+ *
  */
 $(document).ready(function() {
     $('#example').on( 'change', 'tbody tr', function (){
-        /*function checkvalue(rowId){
-            var id = "check"+rowId;
-            if (document.getElementById(id).checked == true)
-                 return 'yes';
-            else return 'no'; }*/
 
-
-        //** check type
-        /*function getanswer(rowId) {
-            var answer;
-            var checkid = "check"+rowId;
-            var longdata_id = "longdata"+rowId;
-            var shortdata_id = "shortdata"+rowId;
-            if(document.getElementById(checkid)!= null){
-                answer = checkvalue(rowId);
-                return answer;}
-
-            if(document.getElementById(longdata_id)!= null){
-                answer = document.getElementById(longdata_id).value;
-                return answer;}
-
-            if(document.getElementById(shortdata_id)!= null){
-                answer = document.getElementById(shortdata_id).value;
-                return answer;}
-        } */    //**end check type
         function requred2(rowId){
             if ($('#required'.concat(rowId)).is(':checked'))
                 return 1;
             else return 0;
 
         }
-
-
         var rowId = this.id;
        // var checkval = checkvalue(rowId);
         var title = $('#title'.concat(rowId)).val();
