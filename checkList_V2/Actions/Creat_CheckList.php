@@ -36,7 +36,7 @@ function creatItem($conn)
     $title = $_GET['title'];
     $date = date("Y-m-d H:i:s");
 
-    $query = "INSERT INTO item_list (list_id,title,required,dataType,creationDate,Submited) values ('$checklistid','$title',$required,'$type','$date','no')";
+    $query = "INSERT INTO item_list (list_id,title,required,dataType,creationDate) values ('$checklistid','$title',$required,'$type','$date')";
     $conn->exec($query);
 
     //

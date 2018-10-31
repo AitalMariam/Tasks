@@ -16,7 +16,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <button class="btn btn-dark">Done</button>
+                        <button class="btn btn-dark" onclick="saveSub()">Done</button>
                         <h3 class="card-title"><?php echo $_GET['name']; ?></h3>
                         <table id="usechecklist" class="table table-striped table-light table-hover">
                             <thead class="thead-dark">
@@ -48,21 +48,22 @@
                                         if($item['item_required'] == '1'){
                                             $required = 'required';
                                         }
+
                                         switch($item['item_datatype'])
                                         {
                                             case $item['item_datatype'] = 'checkbox':
                                                 echo '<div class="item">
-                                                    <input id="check'.$item_id.'" type="checkbox" '.$required.'> 
+                                                    <input  id="check'.$item_id.'" type="checkbox" '.$required.' class="done"> 
                                                     <div class="toggle"> 
                                                         <label for="check'.$item_id.'" ><i></i></label>
                                                     </div>
                                                    </div>';
                                                 break;
                                             case $item['item_datatype'] = 'shortdata':
-                                                echo '<input type="text" id="shortdata'.$item_id.'" '.$required.' class="form-control" maxlength="10">';
+                                                echo '<input type="text" id="shortdata'.$item_id.'" '.$required.' class="form-control done" maxlength="10">';
                                                 break;
                                             case $item['item_datatype'] = 'longdata': echo 'Long Data';
-                                                echo '<input id="longdata'.$item_id.'" '.$required.' type="text" class="form-control"';
+                                                echo '<input id="longdata'.$item_id.'" '.$required.' type="text" class="form-control done"';
                                                 break;
                                         }
                                         echo   '</td>   
@@ -87,6 +88,7 @@
         });
     } );
 </script>
+
 
 <script src="ASSETS/JS/USE_CHECKLIST.js"></script>
 </body>
