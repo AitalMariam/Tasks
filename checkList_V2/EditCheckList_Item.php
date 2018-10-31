@@ -15,8 +15,9 @@
             <div class="card">
                 <div class="card-header">
                     <h3 id="card-header-title"><i class="fas fa-edit"></i> Edit List <strong><?php echo $_GET['name'] ?></strong></h3>
-                    <button class="btn btn-success" id="save" onclick="document.getElementById('sub_form').click()"><i class="fas fa-save"></i></button>
-                    <button class="btn btn-danger" id="save" style="margin-right:10px"><i class="fas fa-trash"></i></button>
+                    <a href="home.php"><button class="btn btn-success" id="save" onclick=""><i class="fas fa-save"></i></button></a>
+
+                    <button class="btn btn-danger" id="save" style="margin-right:10px" onclick="deleteList()"><i class="fas fa-trash"></i></button>
                 </div>
                 <div class="card-body">
                     <div class="col-md-6 col-sm-12">
@@ -144,6 +145,32 @@
         else {
             document.getElementById('newitem').disabled = false;
         }
+    }
+</script>
+<!-- Delete List -->
+<script>
+    function deleteList()
+    {
+        if (confirm("Are you sure?") == true)
+        {
+            // Get list id
+            var url = new URL(window.location.href);
+            //
+            $.ajax({
+                url:'Actions/Delete_CheckList.php',
+                type: 'GET',
+                dataType: 'html',
+                data:
+                    {
+                        'list_id':url.searchParams.get("list_id")
+                    },
+                success:function () {
+                    alert('Deleted !')
+                    window.location.href = 'home.php';
+                }
+            })
+        }
+
     }
 </script>
 </body>

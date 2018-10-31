@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "Database/Connection.php";
-//$listId =  $_GET['id'];
+
 
 
 $USER_ID = $_SESSION['user_id'];
@@ -63,6 +63,7 @@ function editItem($conn,$userid)
         }
 
     }
+
 }
 
 /*function SubItem($conn,$userid)
@@ -80,4 +81,8 @@ function Deleteitem($conn)
     $itemid = $_GET['itemid'];
     $query = "DELETE FROM item_list where id = '$itemid'";
     $conn->exec($query);
+
 }
+
+
+
