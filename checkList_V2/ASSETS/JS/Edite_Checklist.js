@@ -22,12 +22,14 @@ function gettype(){
     return type;
 }
 
+var t = $('#EditeChecklist').DataTable({
+    "paging": false,
+    rowReorder: true,
+    "searching": false
+});
+
 $(document).ready(function() {
-    var t = $('#EditeChecklist').DataTable({
-        "paging": false,
-        rowReorder: true,
-        "searching": false
-    });
+
 
     /** New Item **/
     $('#newitem').on( 'click', function ()
@@ -197,7 +199,8 @@ $(document).ready(function() {
 
 // delet an item
 function deleteitem(itemid) {
-     $.ajax({
+    if (confirm("Are you sure ?") == true) {
+        $.ajax({
             url: 'Actions/Edite_single_item_fromlist.php',
             type: 'GET',
             dataType: 'text',
@@ -211,10 +214,11 @@ function deleteitem(itemid) {
 
         var row = document.getElementById(itemid);
         var table = row.parentNode;
-        while ( table && table.tagName != 'TABLE' )
+        while (table && table.tagName != 'TABLE')
             table = table.parentNode;
-        if ( !table )
+        if (!table)
             return;
         table.deleteRow(row.rowIndex);
+    }
 
 } // delete an item
