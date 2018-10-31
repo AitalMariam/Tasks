@@ -4,7 +4,7 @@ include "Database/Connection.php";
 $USER_ID = $_SESSION['user_id'];
 $listId =  $_GET['id'];
 //Get items
-$items = $conn->prepare("SELECT id, title, description,dataType, required FROM item_list WHERE list_id = '$listId' and Submited = 'no' ORDER BY item_order");
+$items = $conn->prepare("SELECT id, title, description,dataType, required FROM item_list WHERE list_id = '$listId'  ORDER BY item_order");
 $items->execute();
 $result = array();
 foreach ($items as $list_item)

@@ -12,8 +12,8 @@ foreach ($lists as $item)
 {
     //
     //Get items
-    $sub = 'no';
-    $items = $conn->prepare("SELECT id, title, description,dataType FROM item_list WHERE list_id = '$item[0]' and Submited = '0' ");
+
+    $items = $conn->prepare("SELECT id, title, description,dataType FROM item_list WHERE list_id = '$item[0]'");
     $items->execute();
     $result = array();
 
