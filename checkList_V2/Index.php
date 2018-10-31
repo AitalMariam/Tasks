@@ -40,6 +40,13 @@
                             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                         </div>
                         <br>
+                        <div class="form-label-group">
+                            <select name="role" id="role">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <br>
                         <button name="sign_up" class="btn btn-lg btn-primary btn-block text-uppercase">Sign in</button>
                     </form>
                 </div>
