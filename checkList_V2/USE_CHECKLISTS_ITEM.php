@@ -3,7 +3,7 @@
 <head>
     <title>Checklist Title</title>
     <link rel="stylesheet" href="ASSETS/CSS/index.css">
-    <?php include ('master/MainLinks.php');?>
+    <?php session_start() ;include ('master/MainLinks.php');?>
     <!-- CSS -->
     <link rel="stylesheet" href="ASSETS/CSS/singl_checklist.css">
 </head>
@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-body">
                         <button class="btn btn-dark" onclick="saveSub()">Done</button>
-                        <h3 class="card-title"><?php echo $_GET['name']; ?></h3>
+                        <h3 class="card-title"><?php echo $_GET['name']; ?></h3><input style="display: none" id="listid" value="<?php echo $_GET['list_id']?>">
                         <table id="usechecklist" class="table table-striped table-light table-hover">
                             <thead class="thead-dark">
                                 <tr>
@@ -28,7 +28,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    session_start();
+
                                     foreach ($_SESSION['use_list_items'] as $item)
                                     {
                                         $item_id = $item['item_id'];
@@ -37,13 +37,6 @@
                                                     ';
                                         // set data type
                                         echo '<td id="'.$item_id.'">';
-                                        if(!empty($item['item_answer'][0]))
-                                        {
-                                            $it = $item['item_answer'][0];
-                                            $answer = $it['answer_content'];
-                                        }
-                                        else
-                                            $answer = '';
                                         $required = ' ';
                                         if($item['item_required'] == '1'){
                                             $required = 'required';
@@ -62,7 +55,7 @@
                                             case $item['item_datatype'] = 'shortdata':
                                                 echo '<input type="text" id="shortdata'.$item_id.'" '.$required.' class="form-control done" maxlength="10">';
                                                 break;
-                                            case $item['item_datatype'] = 'longdata': echo 'Long Data';
+                                            case $item['item_datatype'] = 'longdata':
                                                 echo '<input id="longdata'.$item_id.'" '.$required.' type="text" class="form-control done"';
                                                 break;
                                         }
