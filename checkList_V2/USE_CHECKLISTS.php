@@ -8,35 +8,31 @@
     <link rel="stylesheet" href="ASSETS/CSS/Checklists.css">
 </head>
 <body>
-    <?php include ('master/NavBar.php');?>
+    <?php// include ('master/NavBar.php');?>
 
     <div class="container">
         <div class="row">
-          <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-              <form>
-                  <a href="USE_CHECKLISTS_ITEM.php">
-                      <div class="card">
-                          <div class="card-body">
-                              <b><span class="check_name"> test</span></b>
-                          </div>
-                      </div>
-                  </a>
-              </form>
-          </div>
+            <?php
+            session_start();
+            foreach ($_SESSION['use_check_list'] as $item)
+            {
+                echo '
+                            <div class="col-12 col-sm-4 col-md-3 col-lg-3">
+                              <form>
+                                  <a href="Actions/Use_item.php?list='.$item['id'].'&name='.$item['title'].'">
+                                      <div class="card">
+                                          <div class="card-body">
+                                              <b><span class="check_name"> ';
+                echo $item['title'];
+                echo '</span></b>
+                                          </div>
+                                      </div>
+                                  </a>
+                              </form>
+                            </div>';
+            }
+            ?>
         </div>
-        <!--<div class="row">
-            <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-                <a href="USE_CHECKLISTS_ITEM.php">
-                    <div class="card">
-                        <div class="card-body">
-                            <b><span class="check_name"> check list1</span></b>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>-->
-
-
     </div>
 
     <?php include ('master/JSlinks.php');?>

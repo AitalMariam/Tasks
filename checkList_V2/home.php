@@ -13,7 +13,7 @@
 <div class="container">
     <div class="btn_container">
         <div  class="col-12 text-center">
-            <a href="USE_CHECKLISTS.php"><button class="btn btn-outline-light btn-lg"><i class="fas fa-clipboard-list"></i>&nbsp; USE CHECKLIST</button></a>
+            <a href="Actions/Use_CheckList.php"><button class="btn btn-outline-light btn-lg"><i class="fas fa-clipboard-list"></i>&nbsp; USE CHECKLIST</button></a>
             <a href="Manage_checklists.php"><button class="btn btn-outline-light btn-lg"><i class="fas fa-cogs"></i>&nbsp; MANAGE CHECKLIST</button></a>
         </div>
     </div>
