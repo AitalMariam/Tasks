@@ -25,7 +25,8 @@ function gettype(){
 $(document).ready(function() {
     var t = $('#EditeChecklist').DataTable({
         "paging": false,
-        rowReorder: true
+        rowReorder: true,
+        "searching": false
     });
 
     /** New Item **/
@@ -38,7 +39,7 @@ $(document).ready(function() {
             check = 'checked';
 
         //
-        var count;
+
         $.ajax({
             url:'Actions/Creat_CheckList.php',
             type: 'GET',
@@ -51,8 +52,8 @@ $(document).ready(function() {
                     'title':title,
                     'button':'newitem'
                 },
-            success:function itemid (data) {
-                count = data.length + 3;
+            success:function itemid (data)
+            {
                 //document.getElementById('itemID').value = data;
                 //var checkid = 'check'.concat(data);
                 var type;
@@ -70,9 +71,9 @@ $(document).ready(function() {
                 }
                 var titleid = 'title'.concat(data);
                 var descriptionid = 'description'.concat(data);
-
+                var countRows = t.rows().count() + 1;
                 t.row.add( [
-                    '<label>'+count+'</label>',
+                    '<label>'+countRows+'</label>',
                     '<input value="'+title+'" type="text"  class="form-control" id="'+titleid+'">',
                     '<input type="text"  class="form-control" id="'+descriptionid+'">',
                     type,

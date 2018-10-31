@@ -63,7 +63,8 @@ function gettype(){
 $(document).ready(function() {
     var t = $('#example').DataTable({
         "paging": false,
-        rowReorder: true
+        rowReorder: true,
+        "searching": false
     });
     var itemOrder = 0;
     $('#newitem').on( 'click', function ()

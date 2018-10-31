@@ -50,7 +50,7 @@ foreach ($lists as $item)
     );
 
     array_push($checklists,$checlist);
-    var_dump($result);
+
 }
 
 
