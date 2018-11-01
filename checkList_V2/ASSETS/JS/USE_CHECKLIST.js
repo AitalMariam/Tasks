@@ -88,7 +88,8 @@ function saveSub()
     });
     // insert to db
     var result = new Array();
-    if (isvalid == true){
+    if (isvalid == true)
+    {
 
         $('#usechecklist tr').each(function() {
             var rowid = this.id;
@@ -142,6 +143,8 @@ function saveSub()
         });
 
     }
-    // insert to db
+
+
+
 
 }
