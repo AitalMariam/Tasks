@@ -19,7 +19,7 @@ switch ($ButtonCall) {
 
 function creatnewchecklist($userid,$conn){
         $checklistName = $_GET['title'];
-        $date = date("Y-m-d");
+        $date = date("Y-m-d H:i:s");
         $query = "INSERT INTO check_list (owner_id, title, creationDate) VALUES ('$userid','$checklistName','$date')";
         $conn->exec($query);
         $id = $conn->lastInsertId();

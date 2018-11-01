@@ -13,7 +13,7 @@ for($i=1;$i<sizeof($result);$i++)
 }
 
 $listid = $_GET['listid'];
-$date = $date = date("Y-m-d h:i:s");
+$date = $date = date("Y-m-d H:i:s");
 $ip = get_client_ip();
 $query2 = "INSERT INTO submit_item (list_id, user_id,submitDate, ipAdress) VALUES ('$listid','$USER_ID','$date','$ip')";
 $conn->exec($query2);

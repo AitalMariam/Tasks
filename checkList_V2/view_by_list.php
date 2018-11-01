@@ -16,7 +16,7 @@
             {
                 echo '<div class="col-12 col-sm-4 col-md-3 col-lg-3">
                         <div class="card">
-                            <a  class="card_link">
+                            <a style="text-decoration:none;" href="Actions/view_by_list_items.php?listid='.$list['list_id'].'&title='.$list['list_name'].'"  class="card_link">
                                 <div class="card-body">
                                     <b><span class="check_name">'.$list['list_name'].'</span> <br></b>
                                     <div>'.$list['list_creationDate'].'</div>
