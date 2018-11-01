@@ -7,59 +7,25 @@
     <link rel="stylesheet" href="ASSETS/CSS/Checklists.css">
 </head>
 <body>
-<?php include ('master/NavBar.php');?>
+<?php //include ('master/NavBar.php');?>
 <div class="container">
     <div class="row">
-        <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-            <div class="card">
-                <a href="Submissions_checklist_item.php" class="card_link">
-                    <div class="card-body">
-                        <b><span class="check_name">CheckList</span> <br></b>
-                        <div>2018/09/05 09:45</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-            <div class="card">
-                <a href="#" class="card_link">
-                    <div class="card-body">
-                        <b><span class="check_name"> List Item Title</span> <br></b>
-                        <div>2018/09/05 09:45</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-            <div class="card">
-                <a href="#" class="card_link">
-                    <div class="card-body">
-                        <b><span class="check_name"> List Item Title</span> <br></b>
-                        <div>2018/09/05 09:45</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-            <div class="card">
-                <a href="#" class="card_link">
-                    <div class="card-body">
-                        <b><span class="check_name"> List Item Title</span> <br></b>
-                        <div>2018/09/05 09:45</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-sm-4 col-md-3 col-lg-3">
-            <div class="card">
-                <a href="#" class="card_link">
-                    <div class="card-body">
-                        <b><span class="check_name"> List Item Title</span> <br></b>
-                        <div>2018/09/05 09:45</div>
-                    </div>
-                </a>
-            </div>
-        </div>
+        <?php
+            session_start();
+            foreach ($_SESSION['view_by_list'] as $list)
+            {
+                echo '<div class="col-12 col-sm-4 col-md-3 col-lg-3">
+                        <div class="card">
+                            <a  class="card_link">
+                                <div class="card-body">
+                                    <b><span class="check_name">'.$list['list_name'].'</span> <br></b>
+                                    <div>'.$list['list_creationDate'].'</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>';
+            }
+        ?>
 
     </div>
 </div>

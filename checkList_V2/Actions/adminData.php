@@ -10,8 +10,9 @@ foreach ($lists as $list)
 {
     $list_id = $list['id'];
     // get list submited users
-    $users = $conn->prepare("SELECT id,name FROM user WHERE id = (SELECT user_id FROM submit_item where list_id =  '$list_id')");
+    $users = $conn->prepare("SELECT id,name FROM user WHERE id IN (SELECT user_id FROM submit_item where list_id =  '$list_id')");
     $users->execute();
+
     $list_users = array();
     foreach ($users as $user)
     {
@@ -22,7 +23,7 @@ foreach ($lists as $list)
         array_push($list_users,$user);
     }
     //
-    $temp = array(
+   $temp = array(
       'list_id'=>$list_id,
       'list_title'=>$list['title'],
       'sub_users'=>$list_users
