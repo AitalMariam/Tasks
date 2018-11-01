@@ -18,4 +18,4 @@ foreach ($lists as $list)
   array_push($result,$temp);
 }
 $_SESSION['view_by_list'] = $result;
-header('Location: ../Submissions_checklist.php');
+header('Location: ../view_by_list.php');

@@ -45,33 +45,43 @@ function saveSub()
                     return false;
                 }
             }
-            else
+            else{
+
                 isvalid = true;
+                return true;
+            }
                 //answers.push($('#'.concat(answerID)).is('checked'));
       }
       else
       {
-          if (answerID == 'shortdata'.concat(rowid) || answerID == 'longdata'.concat(rowid))
+          if (answerID == 'shortdata'.concat(rowid))
           {
               if ($('#'.concat(answerID)).prop('required'))
               {
-                  //alert('this files is required');
-                  if($('#shortdata'.concat(rowid)).val() == '' || $('#longdata'.concat(rowid)).val() == '' ){
+                  if($('#shortdata'.concat(rowid)).val() == ''){
                       $( "#".concat(answerID) ).addClass( "is-invalid" );
                       isvalid = false;
                       return false;
-                    }
-                  else
-                  {
-                      isvalid = true;
-                      //if(answerID == 'shortdata'.concat(rowid)){}
-                         // answers.push($('#shortdata'.concat(rowid)).val())
-
-                      //(answerID == 'longdata'.concat(rowid))
-                         // answers.push($('#longdata'.concat(rowid)).val())
-                  }
+                    }else {
+                          isvalid = true;
+                          return true;
+                          }
               }
           }
+          if (answerID == 'longdata'.concat(rowid)){
+              if ($('#'.concat(answerID)).prop('required'))
+              {
+                  if($('#shortdata'.concat(rowid)).val() == ''){
+                      $( "#".concat(answerID) ).addClass( "is-invalid" );
+                      isvalid = false;
+                      return false;
+                  }else {
+                      isvalid = true;
+                      return true;
+                  }
+              }
+              }
+
       }
 
       //for(var i=0;i<answers.length;i++)
@@ -88,9 +98,9 @@ function saveSub()
     });
     // insert to db
     var result = new Array();
+    alert(isvalid);
     if (isvalid == true)
     {
-
         $('#usechecklist tr').each(function() {
             var rowid = this.id;
             var answerID;
@@ -127,7 +137,7 @@ function saveSub()
             /**** insert to db **/
             result.push([answer,rowid]);
             /*** end insert to db ***/
-
+            console.log('4 ech row');
 
         });
         $.ajax({
@@ -140,6 +150,9 @@ function saveSub()
                     'listid':$('#listid').val()
                 },
             async: true,
+            success: function () {
+                window.location.replace("home.php");
+            }
         });
 
     }
