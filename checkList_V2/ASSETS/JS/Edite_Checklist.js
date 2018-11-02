@@ -93,8 +93,6 @@ $(document).ready(function() {
             }
         })/** end New Item **/
 
-        // var itemid = document.getElementById('itemID').value;
-        //alert(itemid+' outsiid of XD');
     } );
     // Automatically add a first row of data
     $('#addRow').click();
@@ -204,8 +202,10 @@ $(document).ready(function() {
 
 
 // delet an item
-function deleteitem(itemid) {
-    swal({
+function deleteitem(itemid)
+{
+    t.row($('#'.concat(itemid))).remove().draw();
+    /**swal({
         title: "Are you sure?",
         text: "Are you sure that you want to delete this item?",
         icon: "warning",
@@ -226,7 +226,8 @@ function deleteitem(itemid) {
                 })
 
 
-                var row = document.getElementById(itemid);
+
+                /**var row = document.getElementById(itemid);
                 var table = row.parentNode;
                 while (table && table.tagName != 'TABLE')
                     table = table.parentNode;
@@ -235,6 +236,6 @@ function deleteitem(itemid) {
                 table.deleteRow(row.rowIndex);
                 $.notify("The Item List  Was Deleted Successfully","success")
             }
-        });
+        });**/
 
 } // delete an item

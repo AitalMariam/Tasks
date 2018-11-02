@@ -121,7 +121,7 @@
                                                      </div>
                                                 </td>
                                                 <td>
-                                                    <button id="delete'.$item_id.'" onclick="deleteitem('.$item_id.')"  class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                    <button id="delete'.$item_id.'" onclick="deleteitem('.$item_id.');"  class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                                 </td>
                                                </tr>';
                                     }
