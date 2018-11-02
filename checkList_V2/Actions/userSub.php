@@ -4,7 +4,7 @@ include "Database/Connection.php";
 $list = $_GET['listid'];
 $user = $_GET['userid'];
 
-$items = $conn->prepare("SELECT id, title,description,datatype FROM item_list WHERE list_id='$list' ORDER by item_order");
+$items = $conn->prepare("SELECT id, title,description FROM item_list WHERE list_id='$list' ORDER by item_order");
 $items->execute();
 
 $result = array();
@@ -18,7 +18,6 @@ foreach ($items as $val )
     //
     $temp = array(
       'item_title'=>$val['title'],
-      'dataType'=>$val['datatype'],
       'item_description'=>$val['description'],
       'item_answer'=>$answerResult['answer']
     );
