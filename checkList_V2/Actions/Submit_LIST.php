@@ -5,7 +5,7 @@ $USER_ID = $_SESSION['user_id'];
 
 
 $result = $_GET['result'];
-for($i=1;$i<sizeof($result);$i++)
+for($i=0;$i<sizeof($result);$i++)
 {
     $val = $result[$i];
     $query = "INSERT INTO item_answer (answer, item_id, user_id) VALUES ('$val[0]',$val[1],'$USER_ID')";
@@ -15,7 +15,7 @@ for($i=1;$i<sizeof($result);$i++)
 $listid = $_GET['listid'];
 $ip = get_client_ip();
 $currentdate = date_default_timezone_get();
-$query2 = "INSERT INTO submit_item (list_id, user_id,submitDate, ipAdress) VALUES ('$listid','$USER_ID','$date','$ip')";
+$query2 = "INSERT INTO submit_item (list_id, user_id, ipAdress) VALUES ('$listid','$USER_ID','$ip')";
 $conn->exec($query2);
 
 function get_client_ip()

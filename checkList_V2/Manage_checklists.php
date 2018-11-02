@@ -19,7 +19,7 @@
 
             <button class="btn btn-outline-light btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-list-ul"></i>&nbsp; View Submissions &nbsp;&nbsp;</button>
             <div class="dropdown-menu">
-                <a class="dropdown-item"  href="All_Submissions_List.php">View All Submissions</a>
+                <a class="dropdown-item"  href="Actions/All_Submissions.php">View All Submissions</a>
                 <a class="dropdown-item" href="Actions/view_by_list.php">View by List</a>
             </div>
         </div>

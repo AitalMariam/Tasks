@@ -18,8 +18,9 @@
                         <table class="table table-striped table-light table-hover" id="example">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">Check List </th>
-                                    <th scope="col">Users submitted</th>
+                                    <th scope="col">Submit Date</th>
+                                    <th scope="col">User Name</th>
+                                    <th scope="col">Checklist Title</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -27,14 +28,10 @@
                                     session_start();
                                     foreach ($_SESSION['admin_list'] as $val)
                                     {
-                                        echo '<tr><td>'.$val['list_title'].'</td>';
-                                        echo '<td>';
-                                        foreach ($val['sub_users'] as $user_item)
-                                        {
-                                            echo '<a href="Actions/userSub.php?list='.$val['list_id'].'&user='.$user_item['id'].'">';
-                                            echo $user_item['name'].'</a><br>';
-                                        }
-                                        echo'</td></tr>';
+                                        echo '<tr>
+                                              <td><a href="Actions/userSub.php?listid='.$val['list_id'].'&userid='.$val['user_id'].'">'.$val['sub_date'].'</a></td>';
+                                        echo '<td>'.$val['user_name'].'</td>';
+                                        echo '<td>'.$val['list_title'].'</td><tr>';
                                     }
                                 ?>
                             </tbody>

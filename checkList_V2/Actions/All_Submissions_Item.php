@@ -4,8 +4,8 @@ include "Database/Connection.php";
 $USER_ID = $_SESSION['user_id'];
 $listId =  $_GET['listid'];
 //Get items with answers
-$query2 = 'select title ,answer ,description from item_list JOIN item_answer on item_list.id = item_answer.item_id
-          where item_list.list_id = '.$listId.' and item_answer.user_id = '.$USER_ID ;
+/**$query = 'select title ,answer ,description from item_list JOIN item_answer on item_list.id = item_answer.item_id
+where item_list.list_id = '.$listId.' and item_answer.user_id = '.$USER_ID;**/
 
 $items = $conn->prepare("SELECT id, title,description FROM item_list WHERE list_id = '$listId'order by item_order");
 $items->execute();
@@ -28,5 +28,5 @@ foreach ($items as $item)
     array_push($result,$temp);
 }
 
-$_SESSION['view_bylist_items'] = $result;
-header('Location: ../view_by_list_items.php?title='.$_GET['title']);
+$_SESSION['all_submissions_items'] = $result;
+header('Location: ../All_Submissions_Item.php?title='.$_GET['title']);

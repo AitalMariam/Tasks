@@ -5,7 +5,7 @@ $USER_ID = $_SESSION['user_id'];
 
 $listId  = $_GET['list'];
 
-$items = $conn->prepare("SELECT id, title, description,dataType, required FROM item_list WHERE list_id = '$listId' ORDER BY item_order ");
+$items = $conn->prepare("SELECT id, title, description,dataType, required ,item_order FROM item_list WHERE list_id = '$listId' ORDER BY item_order desc ");
 $items->execute();
 $result = array();
 foreach ($items as $list_item)

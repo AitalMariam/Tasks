@@ -40,12 +40,7 @@
                             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                         </div>
                         <br>
-                        <div class="form-label-group">
-                            <select name="role" id="role">
-                                <option value="user">User</option>
-                                <option value="admin">Admin</option>
-                            </select>
-                        </div>
+
                         <br>
                         <button name="sign_up" class="btn btn-lg btn-primary btn-block text-uppercase">Sign in</button>
                     </form>
@@ -78,6 +73,13 @@
                         <br>
                         <div class="form-label-group">
                             <input type="password"  class="form-control" id="password" name="password_in" placeholder="Password" required>
+                        </div>
+                        <br>
+                        <div class="form-label-group">
+                            <select style="border-radius: 50px;" class="custom-select" name="role" id="role">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
                         </div>
                         <br>
                         <div class="custom-control custom-checkbox mb-3">

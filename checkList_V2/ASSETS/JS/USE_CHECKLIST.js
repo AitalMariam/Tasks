@@ -25,11 +25,13 @@ function saveSub()
             {
                 if (!$('#'.concat(answerID)).is(':checked'))
                 {
-                    alert('must be toggle on');
+                    alert('The Toggle must be on Because the answer is Required');
                     isvalid = false;
+                    return false;
                 }
                 else
                     isvalid = true;
+
             }
             else
                 isvalid = true;
@@ -47,6 +49,7 @@ function saveSub()
                     {
                         $("#".concat(answerID) ).addClass( "is-invalid" );
                         isvalid = false;
+                        return false;
                     }
                     else
                         isvalid = true;
@@ -66,6 +69,7 @@ function saveSub()
                         {
                             $("#".concat(answerID) ).addClass( "is-invalid" );
                             isvalid = false;
+                            return false;
                         }
                         else
                             isvalid = true;
@@ -78,9 +82,11 @@ function saveSub()
     });
 
     // insertion  to db
-    var result = new Array();
+
     if(isvalid == true)
     {
+        var result = new Array();
+        var answer;
         // collect answers
         $('#usechecklist tr').each(function()
         {
@@ -111,23 +117,25 @@ function saveSub()
                 }
             }
         });
+
+
+
+        // send data via ajax
+        $.ajax({
+            url:'Actions/Submit_LIST.php',
+            type: 'GET',
+            dataType: 'html',
+            data:
+                {
+                    'result':result,
+                    'listid':$('#listid').val()
+                },
+            async: true,
+            success: function ()
+            {
+                window.location.replace("home.php");
+            }
+        });
     }
 
-
-    // send data via ajax
-    $.ajax({
-        url:'Actions/Submit_LIST.php',
-        type: 'GET',
-        dataType: 'html',
-        data:
-            {
-                'result':result,
-                'listid':$('#listid').val()
-            },
-        async: true,
-        success: function ()
-        {
-            window.location.replace("home.php");
-        }
-    });
 }
