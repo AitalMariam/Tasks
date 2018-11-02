@@ -4,21 +4,29 @@ include "Database/Connection.php";
 $USER_ID = $_SESSION['user_id'];
 $listId =  $_GET['listid'];
 //Get items with answers
-$query = 'select title ,answer ,description from item_list JOIN item_answer on item_list.id = item_answer.item_id
-          where item_list.list_id = '.$listId.' and item_answer.user_id = '.$USER_ID;
+/**$query = 'select title ,answer ,description from item_list JOIN item_answer on item_list.id = item_answer.item_id
+          where item_list.list_id = '.$listId.' and item_answer.user_id = '.$USER_ID;**/
 
-$items = $conn->prepare($query);
+$items = $conn->prepare("SELECT id, title,description FROM item_list WHERE list_id = '$listId' ");
 $items->execute();
 
 $result = array();
-foreach ($items as $item){
+foreach ($items as $item)
+{
+    //get item answer
+    $itemId = $item['id'];
+    $answer = $conn->prepare("SELECT answer FROM item_answer WHERE item_id = '$itemId' AND user_id ='$USER_ID'LIMIT 1");
+    $answer->execute();
+    $answerResult = $answer->fetch();
+    //
     $temp = array(
-        'item_title'=>$item[0],
-        'item_answer'=>$item[1],
-        'item_description'=>$item[2],
+        'item_title'=>$item['title'],
+        'item_description'=>$item['description'],
+        'item_answer'=>$answerResult['answer']
     );
+
     array_push($result,$temp);
 }
-var_dump($result);
+
 $_SESSION['view_bylist_items'] = $result;
 header('Location: ../view_by_list_items.php?title='.$_GET['title']);
