@@ -9,7 +9,7 @@
 
 <body>
 
-<?php //include ('master/NavBar.php');?>
+<?php include ('master/NavBar.php');?>
 <div class="container">
     <div class="btn_container">
         <div  class="col-12 text-center">

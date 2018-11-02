@@ -7,9 +7,10 @@
         <link rel="stylesheet" href="ASSETS/CSS/new_checklist.css">
     </head>
     <body>
+    <?php include ('master/NavBar.php');?>
 
 
-        <div class="container">
+    <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="card">

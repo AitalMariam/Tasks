@@ -30,11 +30,12 @@ include "Database/Connection.php";
         $Email = $_POST['email_in'];
         $Password = $_POST['password_in'];
 
-        $result = $conn->prepare("select id,role from user where email ='".$Email."' and password = '".$Password."' LIMIT 1");
+        $result = $conn->prepare("select id,role ,name from user where email ='".$Email."' and password = '".$Password."' LIMIT 1");
         $result->execute();
 
         if($result->rowCount() == 1)
         {
+            if ()
             $user = $result->fetch();
             session_start();
             //$id = $result->fetchColumn();

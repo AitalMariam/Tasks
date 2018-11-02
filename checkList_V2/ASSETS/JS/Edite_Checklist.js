@@ -192,7 +192,6 @@ $(document).ready(function() {
                 },
             success: function(){
                 $.notify("The Changes Was Saved","success")
-                swal("Good job!", "You clicked the button!", "success");
             }
         })
 
