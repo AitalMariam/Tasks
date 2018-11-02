@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="ASSETS/CSS/All_Submissions.css">
 </head>
 <body>
-<?php include ('master/NavBar.php');?>
+<?php //include ('master/NavBar.php');?>
 <div class="container">
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title" style="display:inline"><?php session_start();echo $_GET['title']; ?></h3>
-                    <button class="btn btn-danger" style="float: right;"><i class="fas fa-trash"></i></button>
+
                 </div>
                 <div class="card-body">
                     <table id="usechecklist" class="table table-striped table-light table-hover">

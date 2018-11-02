@@ -13,12 +13,13 @@ for($i=1;$i<sizeof($result);$i++)
 }
 
 $listid = $_GET['listid'];
-$date = $date = date("Y-m-d H:i:s");
 $ip = get_client_ip();
+$currentdate = date_default_timezone_get();
 $query2 = "INSERT INTO submit_item (list_id, user_id,submitDate, ipAdress) VALUES ('$listid','$USER_ID','$date','$ip')";
 $conn->exec($query2);
 
-function get_client_ip() {
+function get_client_ip()
+{
     $ipaddress = '';
     if (getenv('HTTP_CLIENT_IP'))
         $ipaddress = getenv('HTTP_CLIENT_IP');
@@ -34,6 +35,8 @@ function get_client_ip() {
         $ipaddress = getenv('REMOTE_ADDR');
     else
         $ipaddress = 'UNKNOWN';
+
+
     return $ipaddress;
 }
 
