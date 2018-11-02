@@ -32,5 +32,5 @@ foreach ($lists as $list)
 }
 
 
-$_SESSION['admin_list'] = $result;
+$_SESSION['admin_list'] = array_reverse($result);
 header('Location: ../adminView.php');
