@@ -32,7 +32,7 @@ include "Database/Connection.php";
 
         $result = $conn->prepare("select id,role from user where email ='".$Email."' and password = '".$Password."' LIMIT 1");
         $result->execute();
-        var_dump($result->rowCount());
+
         if($result->rowCount() == 1)
         {
             $user = $result->fetch();

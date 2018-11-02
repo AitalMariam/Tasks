@@ -31,8 +31,8 @@
                                         echo '<td>';
                                         foreach ($val['sub_users'] as $user_item)
                                         {
-                                            echo '<a href="Actions/userSub.php?list='.$val['list_id'].'?user='.$user_item['id'].'">';
-                                            echo $user_item['name'].'</a>';
+                                            echo '<a href="Actions/userSub.php?list='.$val['list_id'].'&user='.$user_item['id'].'">';
+                                            echo $user_item['name'].'</a><br>';
                                         }
                                         echo'</td></tr>';
                                     }
