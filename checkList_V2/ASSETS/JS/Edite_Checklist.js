@@ -25,7 +25,8 @@ function gettype(){
 var t = $('#EditeChecklist').DataTable({
     "paging": false,
     rowReorder: true,
-    "searching": false
+    "searching": false,
+    responsive: true
 });
 
 $(document).ready(function() {
@@ -188,8 +189,13 @@ $(document).ready(function() {
                     'itemid':rowId,
                     'required':required,
                     'answer':getanswer(rowId)
-                }
+                },
+            success: function(){
+                $.notify("The Changes Was Saved","success")
+                swal("Good job!", "You clicked the button!", "success");
+            }
         })
+
     });
 });
 //END INSERTING
@@ -199,26 +205,36 @@ $(document).ready(function() {
 
 // delet an item
 function deleteitem(itemid) {
-    if (confirm("Are you sure ?") == true) {
-        $.ajax({
-            url: 'Actions/Edite_single_item_fromlist.php',
-            type: 'GET',
-            dataType: 'text',
-            data:
-                {
-                    'button': 'deleteitem',
-                    'itemid': itemid,
-                },
-        })
+    swal({
+        title: "Are you sure?",
+        text: "Are you sure that you want to delete this item?",
+        icon: "warning",
+        buttons: ["NO", "YES !"],
+        dangerMode: true,
+    })
+        .then(willDelete => {
+            if (willDelete) {
+                $.ajax({
+                    url: 'Actions/Edite_single_item_fromlist.php',
+                    type: 'GET',
+                    dataType: 'text',
+                    data:
+                        {
+                            'button': 'deleteitem',
+                            'itemid': itemid,
+                        },
+                })
 
 
-        var row = document.getElementById(itemid);
-        var table = row.parentNode;
-        while (table && table.tagName != 'TABLE')
-            table = table.parentNode;
-        if (!table)
-            return;
-        table.deleteRow(row.rowIndex);
-    }
+                var row = document.getElementById(itemid);
+                var table = row.parentNode;
+                while (table && table.tagName != 'TABLE')
+                    table = table.parentNode;
+                if (!table)
+                    return;
+                table.deleteRow(row.rowIndex);
+                $.notify("The Item List  Was Deleted Successfully","success")
+            }
+        });
 
 } // delete an item

@@ -21,37 +21,38 @@
                 </div>
                 <div class="card-body">
                     <div class="col-md-6 col-sm-12">
-                        <div class="input-group mb-3">
-                            <input type="text" value='<?php echo $_GET['name'] ?>'  onkeydown=""  name="listname"  id='checklist_title'  class="form-control head_inputs" placeholder="List Name">
-                        </div>
-                        <div class="invalid-feedback">
-                            Please write a title for this list
-                        </div>
+                        <!--<div class="input-group mb-3">
+                            <input type="text" value='<?php // echo $_GET['name'] ?>'  onkeydown=""  name="listname"  id='checklist_title'  class="form-control head_inputs" placeholder="List Name">
+                        </div> -->
                         <input type="text" id="list_id" style="display: none;" value="<?php echo $_GET['list_id'] ?>">
                     </div>
-                    <div class="col-md-12 col-sm-12 head_inputs">
+                    <div class="col-md-6 col-sm-12 head_inputs">
                         <!-- <form method="post" action=""> -->
-                        <div class="input-group">
+
+                        <div class="input-group mb-3">
                             <input type="text" class="form-control" id="itemtitle" placeholder="Item title" onkeyup="checkselected()">
-                            <select class="custom-select" id="itemType" onchange="checkselected()">
+                        </div>
+                        <div class="input-group mb-3">
+                            <select class="custom-select" id="itemType" style="border-radius: 50px;" onchange="checkselected()">
                                 <option selected disabled>Choose item Type to add</option>
                                 <option value="checkbox">Checkbox</option>
                                 <option value="shortdata">Short data (10 character field)</option>
                                 <option value="longdata">Long Data (Text box)</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Please Choice one Type
-                            </div>
-                            <div class="custom-control custom-checkbox my-1 mr-sm-2" style="margin-left:25px">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
                                 <input type="checkbox" class="custom-control-input"  id="checkItemRequired" onchange="requred()">
                                 <label class="custom-control-label" for="checkItemRequired">Required</label>
                             </div>
+                        </div>
+                        <div class="input-group mb-3">
                             <button class="btn btn-primary" id="newitem" disabled name="newitem" >Add new item</button>
-
                         </div>
                         <!--</form>-->
                         <br>
                     </div>
+                        <div class="table-responsive">
                         <table class="table table-striped table-light table-hover" id="EditeChecklist">
                             <thead class="thead-dark">
                             <tr>
@@ -127,6 +128,7 @@
                                 ?>
                             </tbody>
                         </table>
+                        </div>
                 </div>
             </div>
 
@@ -151,8 +153,17 @@
 <script>
     function deleteList()
     {
-        if (confirm("Are you sure?") == true)
-        {
+
+        swal({
+            title: "Are you sure?",
+            text: "Are you sure that you want to delete this CHECK LIST?",
+            icon: "warning",
+            buttons: ["NO", "YES !"],
+            dangerMode: true,
+        })
+            .then(willDelete => {
+                if (willDelete) {
+
             // Get list id
             var url = new URL(window.location.href);
             //
@@ -165,11 +176,11 @@
                         'list_id':url.searchParams.get("list_id")
                     },
                 success:function () {
-                    alert('Deleted !')
                     window.location.href = 'home.php';
                 }
             })
-        }
+                }
+            });
 
     }
 </script>

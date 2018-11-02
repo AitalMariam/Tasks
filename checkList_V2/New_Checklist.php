@@ -21,44 +21,44 @@
                         <div class="card-body">
                             <div class="col-md-6 col-sm-12">
                                 <form method="post" action="">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-3" id="add_section">
                                         <input type="text"  onkeydown="checktitle()"  name="listname"  id='checklist_title'  class="form-control head_inputs" placeholder="List Name" aria-describedby="button-addcheck">
                                         <div class="input-group-append">
                                             <button class="btn btn-info" type="button" id="button-addcheck" disabled>Create</button>
                                         </div>
                                     </div>
                                     <input id="checklistID" style="display: none;" value="">
-                                    <div class="invalid-feedback">
-                                        Please write a title for this list
-                                    </div>
                                 </form>
                             </div>
 
                             <div id="cardbody" style="display:none">
-                                <div class="col-md-12 col-sm-12 head_inputs">
+                                <div class="col-md-6 col-sm-12 head_inputs">
                                    <!-- <form method="post" action=""> -->
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="itemtitle" placeholder="Item title" onkeyup="checkselected()">
-                                            <select class="custom-select" id="itemType" onchange="checkselected()">
-                                                <option selected disabled>Choose item Type to add</option>
-                                                <option value="checkbox">Checkbox</option>
-                                                <option value="shortdata">Short data (10 character field)</option>
-                                                <option value="longdata">Long Data (Text box)</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Please Choice one Type
-                                            </div>
-                                            <div class="custom-control custom-checkbox my-1 mr-sm-2" style="margin-left:25px">
-                                                <input type="checkbox" class="custom-control-input"  id="checkItemRequired" onchange="requred()">
-                                                <label class="custom-control-label" for="checkItemRequired">Required</label>
-                                            </div>
-                                            <button class="btn btn-primary" id="newitem" disabled name="newitem" >Add new item</button>
-
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="itemtitle" placeholder="Item title" onkeyup="checkselected()">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <select class="custom-select" id="itemType" onchange="checkselected()" style="border-radius: 50px;">
+                                            <option selected disabled>Choose item Type to add</option>
+                                            <option value="checkbox">Checkbox</option>
+                                            <option value="shortdata">Short data (10 character field)</option>
+                                            <option value="longdata">Long Data (Text box)</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                            <input type="checkbox" class="custom-control-input"  id="checkItemRequired" onchange="requred()">
+                                            <label class="custom-control-label" for="checkItemRequired">Required</label>
                                         </div>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                            <button class="btn btn-primary" id="newitem" disabled name="newitem" >Add new item</button>
+                                    </div>
                                     <!--</form>-->
                                      <br>
                                 </div>
-                                <form method="POST" id="newItemForm"  class="needs-validation" novalidate>
+
+                                <div class="table-responsive">
                                     <table class="table table-striped table-light table-hover" id="example">
                                         <thead class="thead-dark">
                                         <tr>
@@ -74,7 +74,7 @@
                                         </tbody>
                                     </table>
                                     <input type="submit" style="display:none" id="sub_form">
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
