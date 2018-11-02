@@ -1,10 +1,10 @@
 <?php
 session_start();
 include "Database/Connection.php";
-$list = $_GET['list'];
-$user = $_GET['user'];
+$list = $_GET['listid'];
+$user = $_GET['userid'];
 
-$items = $conn->prepare("SELECT id, title,description FROM item_list WHERE list_id='$list' ORDER by item_order");
+$items = $conn->prepare("SELECT id, title,description,datatype FROM item_list WHERE list_id='$list' ORDER by item_order");
 $items->execute();
 
 $result = array();
@@ -18,12 +18,14 @@ foreach ($items as $val )
     //
     $temp = array(
       'item_title'=>$val['title'],
+      'dataType'=>$val['datatype'],
       'item_description'=>$val['description'],
-      'answer'=>$answerResult['answer']
+      'item_answer'=>$answerResult['answer']
     );
     array_push($result,$temp);
 }
 
-// set a view for this result
-var_dump($result);
+
+$_SESSION['answers_list_by_user'] = $result;
+header('Location: ../view_user_sub.php?list='.$_GET['title']);
 

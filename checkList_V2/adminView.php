@@ -29,7 +29,7 @@
                                     foreach ($_SESSION['admin_list'] as $val)
                                     {
                                         echo '<tr>
-                                              <td><a href="Actions/userSub.php?listid='.$val['list_id'].'&userid='.$val['user_id'].'">'.$val['sub_date'].'</a></td>';
+                                              <td><a href="Actions/userSub.php?listid='.$val['list_id'].'&userid='.$val['user_id'].'&title='.$val['list_title'].'">'.$val['sub_date'].'</a></td>';
                                         echo '<td>'.$val['user_name'].'</td>';
                                         echo '<td>'.$val['list_title'].'</td><tr>';
                                     }
