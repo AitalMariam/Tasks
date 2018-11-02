@@ -25,7 +25,11 @@ function saveSub()
             {
                 if (!$('#'.concat(answerID)).is(':checked'))
                 {
-                    alert('The Toggle must be on Because the answer is Required');
+                    swal({
+                        title: "Required !",
+                        text: "The Toggle must be on Because the answer is Required",
+                        icon: "warning",
+                    })
                     isvalid = false;
                     return false;
                 }
@@ -133,6 +137,7 @@ function saveSub()
             async: true,
             success: function ()
             {
+                swal("Thank You", "The List Was Submitted", "sstrauccess");
                 window.location.replace("home.php");
             }
         });

@@ -26,6 +26,8 @@ $('#button-addcheck').click(function () {
                 $('#checklistID').val(request)
                 $('#cardbody').css('display','block')
                 $('#button-addcheck').css('display','none')
+                $.notify("The Check List "+$('#checklist_title').val()+" Was Created Successfully","success")
+                $('#add_section').remove();
             }
 
 
@@ -64,7 +66,8 @@ $(document).ready(function() {
     var t = $('#example').DataTable({
         "paging": false,
         rowReorder: true,
-        "searching": false
+        "searching": false,
+        responsive: true
     });
     var itemOrder = 0;
     $('#newitem').on( 'click', function ()

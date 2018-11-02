@@ -8,3 +8,7 @@
 <script src="ASSETS/JS/switchery.js"></script> -->
 <!-- Row ordering -->
 <script src="https://cdn.datatables.net/rowreorder/1.2.5/js/dataTables.rowReorder.min.js"></script>
+<!-- Notif -->
+<script src="ASSETS/JS/notify.js"></script>
+<!-- Notif -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

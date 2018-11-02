@@ -15,9 +15,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-body">
-                        <button class="btn btn-dark" onclick="saveSub()">Done</button>
+                    <div class="card-header">
+                        <button class="btn btn-success" onclick="saveSub()">Submit</button>
                         <h3 class="card-title"><?php echo $_GET['name']; ?></h3><input style="display: none" id="listid" value="<?php echo $_GET['list_id']?>">
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
                         <table id="usechecklist" class="table table-striped table-light table-hover">
                             <thead class="thead-dark">
                                 <tr>
@@ -59,13 +62,19 @@
                                                 echo '<input id="longdata'.$item_id.'" '.$required.' type="text" class="form-control done"';
                                                 break;
                                         }
-                                        echo   '</td>   
-                                             <td>'.$item['item_description'].' </td>
+                                        if (empty($item['item_description'])){
+                                            
+                                        }
+                                        echo   '</td> 
+                                                    
+  
+                                             <td>'.$item['item_description'].'</td>
                                                    </tr>';
                                     }
                                 ?>
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>
