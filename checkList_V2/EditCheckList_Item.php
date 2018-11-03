@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <?php session_start(); ?>
+    <?php session_start();  include ('Actions/sessiontest.php');?>
     <title>Manage Check Lists</title>
     <link rel="stylesheet" href="ASSETS/CSS/index.css">
     <?php include ('master/MainLinks.php');?>
     <link rel="stylesheet" href="ASSETS/CSS/new_checklist.css">
 </head>
 <body>
-<?php //include ('master/NavBar.php');?>
+<?php include ('master/NavBar.php');?>
 <div class="container">
     <div class="row">
         <div class="col-12">

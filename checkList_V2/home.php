@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>HOME | <?php session_start();  echo $_SESSION['user_id']; ?></title>
+    <title>HOME | <?php session_start(); include ('Actions/sessiontest.php'); echo $_SESSION['user_id']; ?></title>
     <link rel="stylesheet" href="ASSETS/CSS/index.css">
     <?php include ('master/MainLinks.php');?>
     <link rel="stylesheet" href="ASSETS/CSS/index.css">
@@ -9,7 +9,7 @@
 
 <body>
 
-<?php //include ('master/NavBar.php');?>
+<?php include ('master/NavBar.php');?>
 <div class="container">
     <div class="btn_container">
         <div  class="col-12 text-center">

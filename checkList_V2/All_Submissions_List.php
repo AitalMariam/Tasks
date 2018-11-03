@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="ASSETS/CSS/Checklists.css">
 </head>
 <body>
-<?php //include ('master/NavBar.php');?>
+<?php include ('master/NavBar.php');?>
 <div class="container">
     <div class="row">
         <?php
         session_start();
+        include ('Actions/sessiontest.php');
         foreach ($_SESSION['all_submissions'] as $list)
         {
             echo '<div class="col-12 col-sm-4 col-md-3 col-lg-3">

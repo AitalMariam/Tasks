@@ -3,12 +3,12 @@
 <head>
     <title>Checklist Title</title>
     <link rel="stylesheet" href="ASSETS/CSS/index.css">
-    <?php session_start() ;include ('master/MainLinks.php');?>
+    <?php session_start(); include ('Actions/sessiontest.php'); ;include ('master/MainLinks.php');?>
     <!-- CSS -->
     <link rel="stylesheet" href="ASSETS/CSS/singl_checklist.css">
 </head>
 <body>
-<?php //include ('master/NavBar.php');?>
+<?php include ('master/NavBar.php');?>
 
 <div class="container">
     <div class="container">

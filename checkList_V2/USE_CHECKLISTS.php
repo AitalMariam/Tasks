@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="ASSETS/CSS/Checklists.css">
 </head>
 <body>
-    <?php// include ('master/NavBar.php');?>
+    <?php include ('master/NavBar.php');?>
 
     <div class="container">
         <div class="row">
             <?php
             session_start();
+            include ('Actions/sessiontest.php');
             foreach ($_SESSION['use_check_list'] as $item)
             {
                 echo '

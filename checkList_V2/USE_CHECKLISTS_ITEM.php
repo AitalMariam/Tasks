@@ -3,12 +3,12 @@
 <head>
     <title>Checklist Title</title>
     <link rel="stylesheet" href="ASSETS/CSS/index.css">
-    <?php session_start() ;include ('master/MainLinks.php');?>
+    <?php session_start(); include ('Actions/sessiontest.php'); ;include ('master/MainLinks.php');?>
     <!-- CSS -->
     <link rel="stylesheet" href="ASSETS/CSS/singl_checklist.css">
 </head>
 <body>
-<?php //include ('master/NavBar.php');?>
+<?php include ('master/NavBar.php');?>
 
 <div class="container">
     <div class="container">
@@ -62,13 +62,14 @@
                                                 echo '<input id="longdata'.$item_id.'" '.$required.' type="text" class="form-control done"';
                                                 break;
                                         }
-                                        if (empty($item['item_description'])){
-                                            
-                                        }
+                                        $descreption = $item['item_description'];
+                                        if (empty($item['item_description']))
+                                            $descreption = "No Description";
                                         echo   '</td> 
-                                                    
-  
-                                             <td>'.$item['item_description'].'</td>
+                                             <td>
+                                                <a data-toggle="collapse" href="#Desc'.$item_id.'" aria-expanded="true" aria-controls="multiCollapseExample1">Show Description</a>
+                                                <div id="Desc'.$item_id.'" class="collapse">'.$descreption.'</div>
+                                              </td>
                                                    </tr>';
                                     }
                                 ?>

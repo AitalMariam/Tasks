@@ -9,4 +9,3 @@ try{
     $err = $exception->getMessage();
     echo "<script> alert('Connection failed:')</script>";
 }
-?>
