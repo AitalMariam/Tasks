@@ -83,7 +83,7 @@
 
                         <br>
                         <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" name="rememberme" value="1" class="custom-control-input" id="customCheck1">
+                            <input type="checkbox" name="rememberme"  class="custom-control-input" id="customCheck1">
                             <label class="custom-control-label" for="customCheck1">Remember Me</label>
                         </div>
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="sign_in">Sign in</button>

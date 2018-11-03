@@ -27,7 +27,7 @@
             </li>
         </ul>
         <div class="form-inline my-2 my-lg-0">
-            <a class="btn btn-outline-light my-2 my-sm-0" href="Actions/logout">Log Out</a>
+            <a class="btn btn-outline-light my-2 my-sm-0" href="Actions/logout.php">Log Out</a>
         </div>
     </div>
 </nav>

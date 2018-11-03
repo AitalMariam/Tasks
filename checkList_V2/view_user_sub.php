@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="ASSETS/CSS/singl_checklist.css">
 </head>
 <body>
-<?php include ('master/NavBar.php');?>
-
+<?php include ('master/AdminNavBar.php');?>
 <div class="container">
     <div class="container">
         <div class="row">

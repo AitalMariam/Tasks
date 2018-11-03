@@ -8,7 +8,9 @@ function checktitle(){
         btn.disabled = false;
     }
 }
-$('#button-addcheck').click(function () {
+$('#button-addcheck').click(function ()
+{
+
         $.ajax({
             url:'Actions/Creat_CheckList.php',
             type: 'GET',
@@ -75,7 +77,7 @@ $(document).ready(function() {
         var value = gettype();
         var title = $('#itemtitle').val();
         itemOrder = itemOrder + 1;
-
+        $('#itemtitle').val('');
         $.ajax({
             url:'Actions/Creat_CheckList.php',
             type: 'GET',
