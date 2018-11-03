@@ -59,6 +59,7 @@ $(document).ready(function() {
             {
                 //document.getElementById('itemID').value = data;
                 //var checkid = 'check'.concat(data);
+                document.getElementById('itemtitle').value = "";
                 var type;
                 switch(value)
                 {
@@ -203,7 +204,6 @@ $(document).ready(function() {
 // delet an item
 function deleteitem(itemid)
 {
-    t.row($('#'.concat(itemid))).remove().draw();
     swal({
         title: "Are you sure?",
         text: "Are you sure that you want to delete this item?",
@@ -222,9 +222,14 @@ function deleteitem(itemid)
                             'button': 'deleteitem',
                             'itemid': itemid,
                         },
+                    success: function () {
+                        t.row($('#'.concat(itemid))).remove().draw();
+                        $.notify("The Item List  Was Deleted Successfully","success")
+                    }
+
                 })
 
-                $.notify("The Item List  Was Deleted Successfully","success")
+
             }
         });
 

@@ -5,6 +5,9 @@ session_start();
 unset($_SESSION['user_id']);
 // Finally, destroy the session.
 session_destroy();
+// Remove cookie variables
+$days = 30;
+setcookie ("rememberme","", time() - ($days * 24 * 60 * 60 * 1000));
 
 // Include URL for Login page to login again.
 header("Location: ../index.php");

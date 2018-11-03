@@ -14,10 +14,14 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 id="card-header-title"><i class="fas fa-edit"></i> Edit List <strong><?php echo $_GET['name'] ?></strong></h3>
-                    <a href="home.php"><button class="btn btn-success" id="save" onclick=""><i class="fas fa-save"></i></button></a>
+                    <div class="col-md-12 col-sm-12">
+                        <h3 id="card-header-title"><i class="fas fa-edit"></i> Edit List <strong><?php echo $_GET['name'] ?></strong></h3>
+                    </div>
+                    <div class="col-md-12 col-sm-12 text-right">
+                        <a href="home.php"><button class="btn btn-success" id="save" onclick=""><i class="fas fa-save"></i></button></a>
+                        <button class="btn btn-danger" id="save" style="margin-right:10px" onclick="deleteList()"><i class="fas fa-trash"></i></button>
+                    </div>
 
-                    <button class="btn btn-danger" id="save" style="margin-right:10px" onclick="deleteList()"><i class="fas fa-trash"></i></button>
                 </div>
                 <div class="card-body">
                     <div class="col-md-6 col-sm-12">
@@ -56,7 +60,7 @@
                         <table class="table table-striped table-light table-hover" id="EditeChecklist">
                             <thead class="thead-dark">
                             <tr>
-                                <th scope="col">Position</th>
+                                <th scope="col">#</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Type</th>
