@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>New CheckList | <?php session_start();  echo $_SESSION['user_id']; ?></title>
+        <title>New CheckList | <?php session_start();  include ('Actions/sessiontest.php');  echo $_SESSION['user_id']; ?></title>
         <?php include ('master/MainLinks.php');?>
         <!-- CSS -->
         <link rel="stylesheet" href="ASSETS/CSS/new_checklist.css">

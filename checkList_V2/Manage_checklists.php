@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="ASSETS/CSS/Manage_Checklist.css">
 </head>
 <body>
-<?php include ('master/NavBar.php');?>
+<?php session_start();  include ('Actions/sessiontest.php'); include ('master/NavBar.php');?>
 <div class="container">
     <div class="btn_container">
         <div  class="col-12 text-center">

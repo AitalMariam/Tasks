@@ -14,6 +14,7 @@
         <div class="row">
             <?php
             session_start();
+            include ('Actions/sessiontest.php');
             foreach ($_SESSION['use_check_list'] as $item)
             {
                 echo '

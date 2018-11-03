@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <?php session_start(); ?>
+    <?php session_start();  include ('Actions/sessiontest.php');?>
     <title>Manage Check Lists</title>
     <link rel="stylesheet" href="ASSETS/CSS/index.css">
     <?php include ('master/MainLinks.php');?>

@@ -13,7 +13,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title" style="display:inline"><?php session_start();echo $_GET['title']; ?></h3>
+                    <h3 class="card-title" style="display:inline"><?php session_start(); include ('Actions/sessiontest.php'); ?>;echo $_GET['title']; ?></h3>
 
                 </div>
                 <div class="card-body">
