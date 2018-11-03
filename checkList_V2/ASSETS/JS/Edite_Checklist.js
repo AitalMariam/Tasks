@@ -204,7 +204,7 @@ $(document).ready(function() {
 function deleteitem(itemid)
 {
     t.row($('#'.concat(itemid))).remove().draw();
-    /**swal({
+    swal({
         title: "Are you sure?",
         text: "Are you sure that you want to delete this item?",
         icon: "warning",
@@ -224,17 +224,8 @@ function deleteitem(itemid)
                         },
                 })
 
-
-
-                /**var row = document.getElementById(itemid);
-                var table = row.parentNode;
-                while (table && table.tagName != 'TABLE')
-                    table = table.parentNode;
-                if (!table)
-                    return;
-                table.deleteRow(row.rowIndex);
                 $.notify("The Item List  Was Deleted Successfully","success")
             }
-        });**/
+        });
 
 } // delete an item

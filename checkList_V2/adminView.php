@@ -7,7 +7,7 @@
 
 </head>
 <body>
-<?php include ('master/NavBar.php');?>
+<?php include ('master/AdminNavBar.php');?>
     <div class="container">
     <div class="row">
         <div class="col-12">

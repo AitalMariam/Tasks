@@ -44,10 +44,10 @@ include "Database/Connection.php";
                 header('Location: ../home.php');
             if($user['role'] == 'admin')
                 header('Location: adminData.php');
+
         }
         else
             header('Location: ../index.php?failed=true');
 
     }
     //End Log in
-
