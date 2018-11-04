@@ -63,7 +63,7 @@
                                     <table class="table table-striped table-light table-hover" id="example">
                                         <thead class="thead-dark">
                                         <tr>
-                                            <th scope="col">Position</th>
+                                            <th scope="col">#</th>
                                             <th scope="col">Title</th>
                                             <th scope="col">Description</th>
                                             <th scope="col">Type</th>

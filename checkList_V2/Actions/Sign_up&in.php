@@ -1,6 +1,15 @@
 <?php
 include "Database/Connection.php";
 
+
+if( !empty($_COOKIE['userID'] )) {
+    $_SESSION['user_id'] = $_COOKIE['userID'];
+    session_start();
+    header('Location: ../home.php');
+}
+
+
+
     // CREATE NEW ACCOUNT
     if (isset($_POST['sign_up'])){
         $Email = $_POST['txt_email'];
@@ -39,6 +48,12 @@ include "Database/Connection.php";
             session_start();
             //$id = $result->fetchColumn();
             $id = $user['id'];
+            /**  */
+            if(!empty($_POST["rememberme"])) {
+                setcookie ("userID",$id,time()+ 3600);
+                echo "Cookies Set Successfuly";
+            }
+            /** **/
             $_SESSION['user_id'] = $id;
             if($user['role'] == 'user')
                 header('Location: ../home.php');

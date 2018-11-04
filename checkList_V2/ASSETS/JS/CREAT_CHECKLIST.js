@@ -93,6 +93,7 @@ $(document).ready(function() {
             success:function itemid (data) {
                 // hna jib id w sf
                 //document.getElementById('itemID').value = data;
+                document.getElementById('itemtitle').value = "";
                 var type;
                 var checked = '';
                 if(requred() == true)
